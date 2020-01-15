@@ -12,8 +12,6 @@
 #endif
 
 
-extern keymap_config_t keymap_config;
-
 #ifdef RGBLIGHT_ENABLE
 //Following line allows macro to read current RGB settings
 extern rgblight_config_t rgblight_config;
@@ -31,9 +29,7 @@ enum layer_number {
     _DVORAK,
     _LOWER,
     _RAISE,
-    _ADJUST,
-    _FUNCTIONS,
-    _MOUSE,
+    _ADJUST
 };
 
 enum custom_keycodes {
@@ -43,26 +39,14 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
-  FUNCTIONS,
-  MOUSE
-};
-
-//Tap Dance Declarations
-enum {
-  TD_W_CAPS = 0,
-  TD_SCLN_QUOTE
+  BACKLIT,
+  EISU,
+  KANA,
+  RGBRST
 };
 
 enum macro_keycodes {
   KC_SAMPLEMACRO,
-};
-
-//Tap Dance Definitions
-qk_tap_dance_action_t tap_dance_actions[] = {
-  //Tap once for Esc, twice for Caps Lock
-  [TD_W_CAPS]  = ACTION_TAP_DANCE_DOUBLE(KC_W, KC_CAPS),
-  [TD_SCLN_QUOTE]  = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_QUOT)
-// Other declarations would go here, separated by commas, if you have them
 };
 
 //Macros
