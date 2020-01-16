@@ -42,17 +42,15 @@ enum custom_keycodes {
 
 //Tap Dance Declarations
 enum {
-  TD_W_CAPS = 0,
-  TD_SCLN_QUOTE,
-  TD_X_CTRLBACKSPACE
+  TD_SCLN_CAPS = 0,
+  TD_COMM_CTRLBACKSPACE
 };
 
 //Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
   //Tap once for Esc, twice for Caps Lock
-  [TD_W_CAPS]  = ACTION_TAP_DANCE_DOUBLE(KC_W, KC_CAPS),
-  [TD_SCLN_QUOTE]  = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_QUOT),
-  [TD_X_CTRLBACKSPACE]  = ACTION_TAP_DANCE_DOUBLE(KC_X, LCTL(KC_BSPC))
+  [TD_SCLN_CAPS]  = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_CAPS),
+  [TD_COMM_CTRLBACKSPACE]  = ACTION_TAP_DANCE_DOUBLE(KC_COMM, LCTL(KC_BSPC))
 // Other declarations would go here, separated by commas, if you have them
 };
 
@@ -77,10 +75,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_QWERTY] = LAYOUT( \
-	C_S_T(KC_GRV)     , KC_1        , LT(_DVORAK,KC_2)      , KC_3     , KC_4                  , KC_5                                                   , KC_6               , KC_7           , KC_8                 , KC_9           , KC_0             , LCAG_T(KC_ESC) , \
-	LT(_RAISE,KC_TAB) , KC_Q        , TD(TD_W_CAPS)         , KC_E     , LT(_MOUSE,KC_R)       , KC_T                                                   , KC_Y               , KC_U           , KC_I                 , KC_O           , KC_P             , KC_DEL         , \
-	KC_LSFT           , KC_A        , KC_S                  , KC_D     , LT(_RAISE,KC_F)       , KC_G                                                   , KC_H               , LT(_RAISE,KC_J), KC_K                 , KC_L           , TD(TD_SCLN_QUOTE), RSFT_T(KC_ENT), \
-	KC_LCTL           , KC_Z        , TD(TD_X_CTRLBACKSPACE), KC_C     , KC_V                  , KC_B      , LCTL(KC_BSPC)    , LT(_FUNCTIONS,KC_PGDN)  , KC_N               , KC_M           , KC_COMM              , KC_DOT         , KC_SLSH          , RCTL_T(KC_QUOT) , \
+	C_S_T(KC_GRV)     , KC_1        , LT(_DVORAK,KC_2)      , KC_3     , KC_4                  , KC_5                                                   , KC_6               , KC_7           , KC_8                    , KC_9           , KC_0             , LCAG_T(KC_ESC) , \
+	LT(_RAISE,KC_TAB) , KC_Q        , KC_W                  , KC_E     , LT(_MOUSE,KC_R)       , KC_T                                                   , KC_Y               , KC_U           , KC_I                    , KC_O           , KC_P             , KC_DEL         , \
+	KC_LSFT           , KC_A        , KC_S                  , KC_D     , LT(_RAISE,KC_F)       , KC_G                                                   , KC_H               , LT(_RAISE,KC_J), KC_K                    , KC_L           , TD(TD_SCLN_CAPS) , RSFT_T(KC_ENT), \
+	KC_LCTL           , KC_Z        , KC_X                  , KC_C     , KC_V                  , KC_B      , LCTL(KC_BSPC)    , LT(_FUNCTIONS,KC_PGDN)  , KC_N               , KC_M           , TD(TD_DOT_CTRLBACKSPACE), KC_DOT         , KC_SLSH          , RCTL_T(KC_QUOT) , \
 	                                                          KC_LALT  , LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC          , LT(_MOUSE,KC_SPC)       , LT(_RAISE, KC_SPC) , KC_RGUI, KC_RALT\
 ),
 
