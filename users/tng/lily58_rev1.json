@@ -46,7 +46,7 @@
 			"KC_C",
 			"KC_V",
 			"KC_B",
-			"LCTL(KC_BSPC)",
+			"ANY(LGUI_T(LCTL(KC_BSPC)))",
 			"LT(6,KC_PGDN)",
 			"KC_N",
 			"KC_M",
