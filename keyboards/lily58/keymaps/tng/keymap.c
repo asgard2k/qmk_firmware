@@ -46,7 +46,8 @@ enum {
   TD_COMM_CTRLBACKSPACE
 };
 
-//Tap Dance Definitions
+//Tap Dance Definitions.
+// To use: Put something like TD(TD_COMM_CTRLBACKSPACE) in the keymaps for the key you want to tap-dance.
 qk_tap_dance_action_t tap_dance_actions[] = {
   //Tap once for Esc, twice for Caps Lock
   [TD_SCLN_CAPS]  = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_CAPS),
@@ -75,11 +76,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_QWERTY] = LAYOUT( \
-	C_S_T(KC_GRV)     , KC_1        , LT(_DVORAK,KC_2)      , KC_3     , KC_4                  , KC_5                                                        , KC_6               , KC_7           , KC_8                     , KC_9           , KC_0             , LCAG_T(KC_ESC) , \
-	LT(_RAISE,KC_TAB) , KC_Q        , KC_W                  , KC_E     , LT(_MOUSE,KC_R)       , KC_T                                                        , KC_Y               , KC_U           , KC_I                     , KC_O           , KC_P             , KC_DEL         , \
-	KC_LSFT           , KC_A        , KC_S                  , KC_D     , LT(_RAISE,KC_F)       , KC_G                                                        , KC_H               , LT(_RAISE,KC_J), KC_K                     , KC_L           , TD(TD_SCLN_CAPS) , RSFT_T(KC_ENT), \
-	KC_LCTL           , KC_Z        , KC_X                  , KC_C     , KC_V                  , KC_B      , LGUI_T(LCTL(KC_BSPC)) , LT(_FUNCTIONS,KC_PGDN)  , KC_N               , KC_M           , TD(TD_COMM_CTRLBACKSPACE), KC_DOT         , KC_SLSH          , RCTL_T(KC_QUOT) , \
-	                                                          KC_LALT  , LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC               , LT(_MOUSE,KC_SPC)       , LT(_RAISE, KC_SPC) , KC_RGUI, KC_RALT\
+	C_S_T(KC_GRV)     , KC_1        , LT(_DVORAK,KC_2)      , KC_3     , KC_4                  , KC_5                                                        , KC_6               , KC_7           , KC_8                    , KC_9           , KC_0           , LCAG_T(KC_ESC) , \
+	LT(_RAISE,KC_TAB) , KC_Q        , KC_W                  , KC_E     , LT(_MOUSE,KC_R)       , KC_T                                                        , KC_Y               , KC_U           , KC_I                    , KC_O           , KC_P           , KC_DEL         , \
+	KC_LSFT           , KC_A        , KC_S                  , KC_D     , LT(_RAISE,KC_F)       , KC_G                                                        , KC_H               , LT(_RAISE,KC_J), KC_K                    , KC_L           , KC_SCLN        , RSFT_T(KC_ENT), \
+	KC_LCTL           , LGUI_T(KC_Z), KC_X                  , KC_C     , KC_V                  , KC_B      , LGUI_T(LCTL(KC_BSPC)) , LT(_FUNCTIONS,KC_PGDN)  , KC_N               , KC_M           , KC_COMM                 , KC_DOT         , KC_SLSH        , RCTL_T(KC_QUOT) , \
+	                                                          KC_LALT  , LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC               , LT(_MOUSE,KC_SPC)       , LT(_RAISE, KC_SPC) , KC_RGUI        , KC_RALT\
 ),
 
 /* COLEMAK
@@ -156,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, XXXXXXX      , XXXXXXX, XXXXXXX, XXXXXXX      , XXXXXXX      ,                         XXXXXXX     , KC_PGUP     , KC_UP     , KC_PGDN, XXXXXXX, _______, \
 	_______, LCTL(KC_BSPC), XXXXXXX, KC_CAPS, XXXXXXX      , XXXXXXX      ,                         KC_HOME     , KC_LEFT     , KC_DOWN   , KC_RGHT, KC_END , _______, \
 	_______, XXXXXXX      , XXXXXXX, XXXXXXX, XXXXXXX      , XXXXXXX      , XXXXXXX      , KC_PGUP, MO(_ADJUST) , LSFT(KC_F10), KC_UNDS   , KC_PLUS, KC_PIPE, _______, \
-	                        _______, _______, _______      , _______      , KC_DEL       , _______, _______, _______ \
+	                                 _______, _______      , _______      , KC_DEL       , _______, _______     , _______     , _______ \
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -186,7 +187,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, KC_F11 , KC_F12 , XXXXXXX, XXXXXXX   , XXXXXXX   ,                   XXXXXXX, XXXXXXX     , KC_INS , XXXXXXX , KC_PSCR, LCA(KC_DEL), \
 	_______, XXXXXXX, KC_SLCK, XXXXXXX, XXXXXXX   , XXXXXXX   ,                   XXXXXXX, XXXXXXX     , XXXXXXX, XXXXXXX , KC_PAUS, _______    , \
 	_______, XXXXXXX, XXXXXXX, XXXXXXX, LCTL(KC_V), XXXXXXX   , XXXXXXX, XXXXXXX, KC_NLCK, LSFT(KC_F10), XXXXXXX, XXXXXXX , XXXXXXX, _______, \
-	                                    _______   , _______   , _______, _______, _______, _______     , _______, _______ \
+	                           _______, _______   , _______   , _______, _______, _______, _______     , _______ \
   ),
   /* MOUSE
  */
