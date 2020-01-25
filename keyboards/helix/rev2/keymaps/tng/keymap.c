@@ -29,7 +29,9 @@ enum layer_number {
     _DVORAK,
     _LOWER,
     _RAISE,
-    _ADJUST
+  _ADJUST,
+  _FUNCTIONS,
+  _MOUSE,
 };
 
 enum custom_keycodes {
@@ -39,10 +41,9 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
-  BACKLIT,
-  EISU,
-  KANA,
-  RGBRST
+  FUNCTIONS,
+  MOUSE,
+  RGBRST		// Special keycode for resetting the RGB
 };
 
 enum macro_keycodes {
@@ -69,11 +70,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_QWERTY] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
-      KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
-      KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LBRC, KC_RBRC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT , \
-      ADJUST,  KC_ESC,  KC_LALT, KC_LGUI, EISU,    LOWER,   KC_SPC,  KC_SPC,  RAISE,   KANA,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
+	C_S_T(KC_GRV)     , KC_1        , LT(_DVORAK,KC_2)      , KC_3     , KC_4                  , KC_5                                                        , KC_6               , KC_7           , KC_8                    , KC_9           , KC_0           , LCAG_T(KC_ESC) , \
+	LT(_RAISE,KC_TAB) , KC_Q        , KC_W                  , KC_E     , LT(_MOUSE,KC_R)       , KC_T                                                        , KC_Y               , KC_U           , KC_I                    , KC_O           , KC_P           , KC_DEL         , \
+	KC_LSFT           , KC_A        , KC_S                  , KC_D     , LT(_RAISE,KC_F)       , KC_G                                                        , KC_H               , LT(_RAISE,KC_J), KC_K                    , KC_L           , KC_SCLN        , RSFT_T(KC_ENT), \
+	KC_LCTL           , LGUI_T(KC_Z), KC_X                  , KC_C     , KC_V                  , KC_B      , LGUI_T(LCTL(KC_BSPC)) , LT(_FUNCTIONS,KC_PGDN)  , KC_N               , KC_M           , KC_COMM                 , KC_DOT         , KC_SLSH        , RCTL_T(KC_QUOT) , \
+	KC_LCTL           , LGUI_T(KC_Z), KC_X                  , KC_LALT  , LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC               , LT(_MOUSE,KC_SPC)       , LT(_RAISE, KC_SPC) , KC_RGUI        , KC_RALT                 , KC_DOT         , KC_SLSH        , RCTL_T(KC_QUOT)\
       ),
 
   /* Colemak
@@ -90,11 +91,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_COLEMAK] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
-      KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC, \
-      KC_LCTL, KC_A,    KC_R,    KC_S,    KC_T,    KC_D,                      KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LBRC, KC_RBRC, KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT , \
-      ADJUST,  KC_ESC,  KC_LALT, KC_LGUI, EISU,    LOWER,   KC_SPC,  KC_SPC,  RAISE,   KANA,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
+	_______, _______        , _______ , _______     , _______        , _______                             , _______               , _______, _______        , _______        , _______        , _______, \
+	_______, _______        , _______ , _______     , _______        , _______                             , _______               , _______, _______        , _______        , _______        , _______, \
+	_______, _______        , _______ , _______     , _______        , _______                             , _______               , _______, _______        , _______        , _______        , _______, \
+	_______, _______        , _______ , _______     , _______        , _______      , _______   , _______  , _______               , _______, _______        , _______        , _______        , _______, \
+	_______, _______        , _______ , _______     , _______        , _______      , _______   , _______  , _______               , _______, _______        , _______        , _______        , _______\
       ),
 
   /* Dvorak
@@ -111,11 +112,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_DVORAK] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
-      KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,                      KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_DEL, \
-      KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                      KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH, \
-      KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LBRC, KC_RBRC, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_ENT , \
-      ADJUST,  KC_ESC,  KC_LALT, KC_LGUI, EISU,    LOWER,   KC_SPC,  KC_SPC,  RAISE,   KANA,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
+	_______, XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+	_______, RGBRST , XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+	_______, RGB_TOG, RGB_MOD , RGB_HUI, RGB_SAI, RGB_VAI,                   RGB_TOG, RGB_MOD , RGB_HUI, RGB_SAI, RGB_VAI, _______, \
+	_______, RGB_M_P, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, _______, XXXXXXX, RGB_M_P, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, _______, \
+	_______, _______, _______ , _______, _______, _______, _______, _______, _______, _______ , _______, _______, _______, _______ \
       ),
 
   /* Lower
@@ -132,11 +133,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_LOWER] = LAYOUT( \
-      KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, \
-      KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, \
-      _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                     KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, \
-      KC_CAPS, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_LPRN, KC_RPRN, KC_F12,  _______, _______, KC_HOME, KC_END,  _______, \
-      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY \
+	KC_ESC , KC_F1      , KC_F2  , KC_F3        , KC_F4         , KC_F5        ,                    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, \
+	_______, LALT(KC_F4), XXXXXXX, LALT(KC_LEFT), LALT(KC_RIGHT), XXXXXXX      ,                    KC_EXLM, KC_AT  , KC_HASH, KC_LCBR, KC_RCBR, _______, 
+	_______, XXXXXXX    , XXXXXXX, LCTL(KC_PGUP), LCTL(KC_PGDN) , XXXXXXX      ,                    KC_DLR , KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______, \
+	_______, XXXXXXX    , XXXXXXX, XXXXXXX      , XXXXXXX       , XXXXXXX      , XXXXXXX, KC_PGUP,  _______, KC_PERC, KC_MINS, KC_EQL , KC_BSLS, _______, \
+	_______, _______    , _______ , _______     , _______       , _______      , KC_DEL , _______,  _______, _______, _______, _______, _______, _______ \
       ),
 
   /* Raise
@@ -153,11 +154,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_RAISE] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
-      _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                     KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS, \
-      KC_CAPS, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  _______, _______, KC_F12,  _______, _______, KC_PGDN, KC_PGUP, _______, \
-      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY \
+	KC_ESC , KC_1         , KC_2   , KC_3   , KC_4         , KC_5         ,                         KC_6        , KC_7        , KC_8      , KC_9   , KC_0   , _______, \
+	_______, XXXXXXX      , XXXXXXX, XXXXXXX, XXXXXXX      , XXXXXXX      ,                         XXXXXXX     , KC_PGUP     , KC_UP     , KC_PGDN, XXXXXXX, _______, \
+	_______, LCTL(KC_BSPC), XXXXXXX, KC_CAPS, XXXXXXX      , XXXXXXX      ,                         KC_HOME     , KC_LEFT     , KC_DOWN   , KC_RGHT, KC_END , _______, \
+	_______, XXXXXXX      , XXXXXXX, XXXXXXX, XXXXXXX      , XXXXXXX      , XXXXXXX      , KC_PGUP, MO(_ADJUST) , LSFT(KC_F10), KC_UNDS   , KC_PLUS, KC_PIPE, _______, \
+	_______, _______      , _______, _______, _______      , _______      , KC_DEL       , _______, _______     , _______     , _______   , _______, _______, _______ \
       ),
 
   /* Adjust (Lower + Raise)
@@ -174,12 +175,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_ADJUST] =  LAYOUT( \
-      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, \
-      _______, RESET,   RGBRST,  _______, _______, _______,                   _______, _______, _______, _______, _______, KC_DEL, \
-      _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM,                   AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______, \
-      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, \
-      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD \
-      )
+	_______, XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+	_______, RESET  , EEP_RST , DEBUG  , XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+	_______, XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, QWERTY , XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+	_______, XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+	_______, _______, _______ , _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
+      ),
+/* FUNCTIONS
+ */
+  [_FUNCTIONS] = LAYOUT( \
+	KC_ESC , KC_F1  , KC_F2  , KC_F3  , KC_F4     , KC_F5     ,                   KC_F6  , KC_F7       , KC_F8  , KC_F9   , KC_F10 , _______    , \
+	_______, KC_F11 , KC_F12 , XXXXXXX, XXXXXXX   , XXXXXXX   ,                   XXXXXXX, XXXXXXX     , KC_INS , XXXXXXX , KC_PSCR, LCA(KC_DEL), \
+	_______, XXXXXXX, KC_SLCK, XXXXXXX, XXXXXXX   , XXXXXXX   ,                   XXXXXXX, XXXXXXX     , XXXXXXX, XXXXXXX , KC_PAUS, _______    , \
+	_______, XXXXXXX, XXXXXXX, XXXXXXX, LCTL(KC_V), XXXXXXX   , XXXXXXX, XXXXXXX, KC_NLCK, LSFT(KC_F10), XXXXXXX, XXXXXXX , XXXXXXX, _______, \
+	_______, _______, _______, _______, _______   , _______   , _______, _______, _______, _______     , _______, _______, _______ , _______ \
+  ),
+  /* MOUSE
+ */
+  [_MOUSE] = LAYOUT( \
+	KC_ESC , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+	_______, KC_ACL0, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U,                         KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_ACL0, _______, \
+	_______, KC_ACL1, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                         KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_ACL1, _______, \
+	_______, KC_ACL2, KC_WH_L, XXXXXXX, KC_WH_R, XXXXXXX, XXXXXXX      , KC_PGUP, XXXXXXX, KC_WH_L, XXXXXXX, KC_WH_R, KC_ACL2, _______, \
+	_______, _______, _______, _______, _______, _______, _______      , _______, _______, _______, _______, _______, _______, _______ \
+),
 };
 
 #elif MATRIX_ROWS == 8 // HELIX_ROWS == 4
@@ -292,7 +311,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM,                   AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______, \
       _______, _______, _______, _______, _______, _______,                   _______, _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, \
       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD \
-      )
+      )),
+/* FUNCTIONS
+ */
+  [_FUNCTIONS] = LAYOUT( \
+      _______, RESET,    RGBRST, _______, _______, _______,                   _______, _______, _______, _______, _______, KC_DEL, \
+      _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM,                   AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______, \
+      _______, _______, _______, _______, _______, _______,                   _______, _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, \
+      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD \
+  ),
+  /* MOUSE
+ */
+  [_MOUSE] = LAYOUT( \
+      _______, RESET,    RGBRST, _______, _______, _______,                   _______, _______, _______, _______, _______, KC_DEL, \
+      _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM,                   AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______, \
+      _______, _______, _______, _______, _______, _______,                   _______, _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, \
+      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD \
+),
 };
 
 #else
@@ -415,7 +450,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
         break;
       //led operations - RGB mode change now updates the RGB_current_mode to allow the right RGB mode to be set after reactive keys are released
-    case RGB_MOD:
+// Not needed. QMK already handles RGB_MOD	  
+/*     case RGB_MOD:
       #ifdef RGBLIGHT_ENABLE
         if (record->event.pressed) {
           rgblight_mode(RGB_current_mode);
@@ -424,31 +460,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       #endif
       return false;
-      break;
-    case EISU:
-      if (record->event.pressed) {
-        if(keymap_config.swap_lalt_lgui==false){
-          register_code(KC_LANG2);
-        }else{
-          SEND_STRING(SS_LALT("`"));
-        }
-      } else {
-        unregister_code(KC_LANG2);
-      }
-      return false;
-      break;
-    case KANA:
-      if (record->event.pressed) {
-        if(keymap_config.swap_lalt_lgui==false){
-          register_code(KC_LANG1);
-        }else{
-          SEND_STRING(SS_LALT("`"));
-        }
-      } else {
-        unregister_code(KC_LANG1);
-      }
-      return false;
-      break;
+      break; */
     case RGBRST:
       #ifdef RGBLIGHT_ENABLE
         if (record->event.pressed) {
@@ -557,6 +569,7 @@ static void render_layer_status(struct CharacterMatrix *matrix) {
   // Define layers here, Have not worked out how to have text displayed for each layer. Copy down the number you see and add a case for it below
   char buf[10];
   matrix_write_P(matrix, PSTR("Layer: "));
+    // switch (biton32(layer_state)) {
     switch (layer_state) {
         case L_BASE:
            matrix_write_P(matrix, PSTR("Default"));
