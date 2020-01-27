@@ -40,7 +40,7 @@ enum custom_keycodes {
   MOUSE
 };
 
-//Tap Dance Declarations
+/* //Tap Dance Declarations
 enum {
   TD_SCLN_CAPS = 0,
   TD_COMM_CTRLBACKSPACE
@@ -53,7 +53,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_SCLN_CAPS]  = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_CAPS),
   [TD_COMM_CTRLBACKSPACE]  = ACTION_TAP_DANCE_DOUBLE(KC_COMM, LCTL(KC_BSPC))
 // Other declarations would go here, separated by commas, if you have them
-};
+}; */
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
