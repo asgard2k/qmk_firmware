@@ -568,13 +568,6 @@ static void render_rgbled_status(bool full, struct CharacterMatrix *matrix) {
 static void render_layer_status(struct CharacterMatrix *matrix) {
   // Define layers here, Have not worked out how to have text displayed for each layer. Copy down the number you see and add a case for it below
   char buf[10];
-  matrix_write_P(matrix, PSTR("Layer: "));
-    // switch (biton32(layer_state)) {
-    switch (layer_state) {
-        case L_BASE:
-           matrix_write_P(matrix, PSTR("Default"));
-           break;
-        case L_RAISE:
            matrix_write_P(matrix, PSTR("Raise"));
            break;
         case L_LOWER:
@@ -589,6 +582,41 @@ static void render_layer_status(struct CharacterMatrix *matrix) {
            snprintf(buf,sizeof(buf), "%ld", layer_state);
            matrix_write(matrix, buf);
     }
+      {
+      case _QWERTY:
+        snprintf(layer_name, sizeof(layer_name), "QWERTY");
+        break;
+      case _COLEMAK:
+        snprintf(layer_name, sizeof(layer_name), "COLEMAK");
+        break;
+      case _DVORAK:
+        snprintf(layer_name, sizeof(layer_name), "DVORAK");
+        break;	
+      case _LOWER:
+        snprintf(layer_name, sizeof(layer_name), "LOWER");
+        break;
+      case _RAISE:
+        snprintf(layer_name, sizeof(layer_name), "RAISE");
+        break;
+      case _ADJUST:
+      //case L_ADJUST_TRI:
+        snprintf(layer_name, sizeof(layer_name), "ADJUST");
+        break;
+      case _FUNCTIONS:
+        snprintf(layer_name, sizeof(layer_name), "FUNCTIONS");
+        break;	
+    case _MOUSE:
+        snprintf(layer_name, sizeof(layer_name), "MOUSE");
+        break;	
+      default:
+        snprintf(layer_name, sizeof(layer_name), "Undef-%ld", layer_state);
+      }    
+
+    char layer_state_str[24];
+    strcpy(layer_state_str, "Layer: ");
+    strcat(layer_state_str, layer_name);    
+
+    matrix_write(matrix, layer_state_str);
 }
 
 void render_status(struct CharacterMatrix *matrix) {
