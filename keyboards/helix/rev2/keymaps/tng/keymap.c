@@ -567,21 +567,30 @@ static void render_rgbled_status(bool full, struct CharacterMatrix *matrix) {
 
 static void render_layer_status(struct CharacterMatrix *matrix) {
   // Define layers here, Have not worked out how to have text displayed for each layer. Copy down the number you see and add a case for it below
-  char buf[10];
-           matrix_write_P(matrix, PSTR("Raise"));
-           break;
-        case L_LOWER:
-           matrix_write_P(matrix, PSTR("Lower"));
-           break;
-        case L_ADJUST:
-        case L_ADJUST_TRI:
-           matrix_write_P(matrix, PSTR("Adjust"));
-           break;
-        default:
-           matrix_write_P(matrix, PSTR("Undef-"));
-           snprintf(buf,sizeof(buf), "%ld", layer_state);
-           matrix_write(matrix, buf);
-    }
+  // char buf[10];
+  // matrix_write_P(matrix, PSTR("Layer: "));
+  //   switch (layer_state) {
+  //       case L_BASE:
+  //          matrix_write_P(matrix, PSTR("Default"));
+  //          break;
+  //       case L_RAISE:
+  //          matrix_write_P(matrix, PSTR("Raise"));
+  //          break;
+  //       case L_LOWER:
+  //          matrix_write_P(matrix, PSTR("Lower"));
+  //          break;
+  //       case L_ADJUST:
+  //       case L_ADJUST_TRI:
+  //          matrix_write_P(matrix, PSTR("Adjust"));
+  //          break;
+  //       default:
+  //          matrix_write_P(matrix, PSTR("Undef-"));
+  //          snprintf(buf,sizeof(buf), "%ld", layer_state);
+  //          matrix_write(matrix, buf);
+  //   }
+
+      char layer_name[17];
+      switch (biton32(layer_state)) 
       {
       case _QWERTY:
         snprintf(layer_name, sizeof(layer_name), "QWERTY");
