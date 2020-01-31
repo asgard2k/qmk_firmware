@@ -73,14 +73,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	C_S_T(KC_GRV)     , KC_1        , LT(_DVORAK,KC_2)      , KC_3         , KC_4                  , KC_5                                                        , KC_6               , KC_7              , KC_8                    , KC_9           , KC_0           , LCAG_T(KC_ESC) , \
 	LT(_RAISE,KC_TAB) , KC_Q        , KC_W                  , KC_E         , LT(_MOUSE,KC_R)       , KC_T                                                        , KC_Y               , KC_U              , KC_I                    , KC_O           , KC_P           , KC_DEL         , \
 	KC_LSFT           , KC_A        , KC_S                  , KC_D         , LT(_RAISE,KC_F)       , KC_G                                                        , KC_H               , LT(_RAISE,KC_J)   , KC_K                    , KC_L           , KC_SCLN        , RSFT_T(KC_ENT), \
-	KC_DEL            , KC_Z        , KC_X                  , KC_C         , KC_V                  , KC_B      , LGUI_T(KC_PGUP)       , LT(_FUNCTIONS,KC_PGDN)  , KC_N               , KC_M              , KC_COMM                 , KC_DOT         , KC_SLSH        , RCTL_T(KC_QUOT) , \
-	KC_LCTL           , KC_LGUI     , KC_LALT               , LSFT(KC_F10) , LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC               , LT(_MOUSE,KC_SPC)       , LT(_RAISE, KC_SPC) , LT(_RAISE, KC_SPC), LSFT(KC_F10)            , KC_RALT        , KC_RGUI        , KC_RCTL\
+	KC_DEL            , KC_Z        , KC_X                  , KC_C         , KC_V                  , KC_B      , LGUI_T(KC_PGUP)       , LT(_FUNCTIONS,KC_PGDN)  , KC_N               , KC_M              , KC_COMM                 , KC_DOT         , RALT_T(KC_SLSH), RCTL_T(KC_QUOT) , \
+	KC_LCTL           , KC_LGUI     , KC_LALT               , LSFT(KC_F10) , LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC               , LT(_MOUSE,KC_SPC)       , LT(_RAISE, KC_SPC) , KC_RGUI           , KC_LEFT                 , KC_UP          , KC_DOWN        , KC_RIGHT\
       ),
 
   /* Colemak
    * ,-----------------------------------------.             ,-----------------------------------------.
    * |   `  |   1  |   2  |   3  |   4  |   5  |             |   6  |   7  |   8  |   9  |   0  | Del  |
-   * |------+------+------+------+------+------|             |------+------+------+------+------+------|
+   * |------+------+------+------+------+------|             |------+------+------+------+------+------| 
    * | Tab  |   Q  |   W  |   F  |   P  |   G  |             |   J  |   L  |   U  |   Y  |   ;  | Bksp |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * | Ctrl |   A  |   R  |   S  |   T  |   D  |             |   H  |   N  |   E  |   I  |   O  |  '   |
@@ -91,11 +91,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_COLEMAK] = LAYOUT( \
-	_______, _______        , _______ , _______     , _______        , _______                             , _______               , _______, _______        , _______        , _______        , _______, \
-	_______, _______        , _______ , _______     , _______        , _______                             , _______               , _______, _______        , _______        , _______        , _______, \
-	_______, _______        , _______ , _______     , _______        , _______                             , _______               , _______, _______        , _______        , _______        , _______, \
-	_______, _______        , _______ , _______     , _______        , _______      , _______   , _______  , _______               , _______, _______        , _______        , _______        , _______, \
-	_______, _______        , _______ , _______     , _______        , _______      , _______   , _______  , _______               , _______, _______        , _______        , _______        , _______\
+	_______, _______, _______, _______, _______, _______                  , _______, _______, _______, _______, _______, _______, \
+	_______, _______, _______, _______, _______, _______                  , _______, _______, _______, _______, _______, _______, \
+	_______, _______, _______, _______, _______, _______                  , _______, _______, _______, _______, _______, _______, \
+	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______\
       ),
 
   /* Dvorak
@@ -184,20 +184,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* FUNCTIONS
  */
   [_FUNCTIONS] = LAYOUT( \
-	KC_ESC , KC_F1  , KC_F2  , KC_F3  , KC_F4     , KC_F5     ,                   KC_F6  , KC_F7       , KC_F8  , KC_F9   , KC_F10 , _______    , \
-	_______, KC_F11 , KC_F12 , XXXXXXX, XXXXXXX   , XXXXXXX   ,                   XXXXXXX, XXXXXXX     , KC_INS , XXXXXXX , KC_PSCR, LCA(KC_DEL), \
-	_______, XXXXXXX, KC_SLCK, XXXXXXX, XXXXXXX   , XXXXXXX   ,                   XXXXXXX, XXXXXXX     , XXXXXXX, XXXXXXX , KC_PAUS, _______    , \
-	_______, XXXXXXX, XXXXXXX, XXXXXXX, LCTL(KC_V), XXXXXXX   , XXXXXXX, XXXXXXX, KC_NLCK, LSFT(KC_F10), XXXXXXX, XXXXXXX , XXXXXXX, _______, \
-	_______, _______, _______, _______, _______   , _______   , _______, _______, _______, _______     , _______, _______, _______ , _______ \
+	KC_ESC , KC_F1  , KC_F2  , KC_F3  , KC_F4     , KC_F5   ,                   KC_F6  , KC_F7       , KC_F8  , KC_F9   , KC_F10 , _______    , \
+	_______, KC_F11 , KC_F12 , XXXXXXX, XXXXXXX   , XXXXXXX ,                   XXXXXXX, XXXXXXX     , KC_INS , XXXXXXX , KC_PSCR, LCA(KC_DEL), \
+	_______, XXXXXXX, KC_SLCK, XXXXXXX, XXXXXXX   , XXXXXXX ,                   XXXXXXX, XXXXXXX     , XXXXXXX, XXXXXXX , KC_PAUS, _______    , \
+	_______, XXXXXXX, XXXXXXX, XXXXXXX, LCTL(KC_V), XXXXXXX , XXXXXXX, XXXXXXX, KC_NLCK, LSFT(KC_F10), XXXXXXX, XXXXXXX , XXXXXXX, _______, \
+	_______, _______, _______, _______, _______   , _______ , _______, _______, _______, _______     , _______, _______ , _______, _______ \
   ),
   /* MOUSE
  */
   [_MOUSE] = LAYOUT( \
-	KC_ESC , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
-	_______, KC_ACL0, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U,                         KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_ACL0, _______, \
-	_______, KC_ACL1, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                         KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_ACL1, _______, \
-	_______, KC_ACL2, KC_WH_L, XXXXXXX, KC_WH_R, XXXXXXX, XXXXXXX      , KC_PGUP, XXXXXXX, KC_WH_L, XXXXXXX, KC_WH_R, KC_ACL2, _______, \
-	_______, _______, _______, _______, _______, _______, _______      , _______, _______, _______, _______, _______, _______, _______ \
+	KC_ESC , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+	_______, KC_ACL0, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U,                    KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_ACL0, _______, \
+	_______, KC_ACL1, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                    KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_ACL1, _______, \
+	_______, KC_ACL2, KC_WH_L, XXXXXXX, KC_WH_R, XXXXXXX, XXXXXXX , KC_PGUP, XXXXXXX, KC_WH_L, XXXXXXX, KC_WH_R, KC_ACL2, _______, \
+	_______, _______, _______, _______, _______, _______, _______ , _______, _______, _______, _______, _______, _______, _______ \
 ),
 };
 
@@ -676,6 +676,6 @@ void iota_gfx_task_user(void) {
     render_layer_status(&matrix);
   }
   matrix_update(&display, &matrix);
-}
+} 
 
 #endif
