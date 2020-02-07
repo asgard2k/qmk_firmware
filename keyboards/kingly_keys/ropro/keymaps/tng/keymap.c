@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, _______, LALT(KC_F4), XXXXXXX, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),         KC_EXLM, KC_AT  , KC_HASH, KC_LCBR, KC_RCBR, _______, \
     _______, _______, XXXXXXX    , XXXXXXX, LCTL(KC_PGUP), LCTL(KC_PGDN) , XXXXXXX,                    KC_DLR , KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______, \
     _______, KC_DEL,  XXXXXXX    , XXXXXXX, XXXXXXX,       XXXXXXX,        XXXXXXX,                    _______, KC_PERC, KC_MINS, KC_EQL , KC_BSLS, _______, \
-    _______, _______, _______    , _______, _______,       _______,        _______ ,                   _______, _______, _______, _______, _______, _______ \
+    _______, _______, _______    , _______, _______,       _______,        _______ ,                   KC_SPC,  _______, _______, _______, _______, _______ \
  ),
 
 /* RAISE
