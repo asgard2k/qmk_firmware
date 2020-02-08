@@ -60,10 +60,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
-      C_S_T(KC_TAB),  KC_Q,           KC_W,    KC_E,    LT(_MOUSE,KC_R),        KC_T,                                                                                                                        KC_Y,               KC_U,            KC_I,    KC_O,    KC_P,    LCAG_T(KC_ESC),
-      KC_LSFT,        KC_A,           KC_S,    KC_D,    LT(_RAISE,KC_F),        KC_G,                                                                                                                        KC_H,               LT(_RAISE,KC_J), KC_K,    KC_L,    KC_SCLN, RSFT_T(KC_ENT),
-      KC_LCTL,        LGUI_T(KC_Z),   KC_X,    KC_C,    KC_V,                   KC_B,       LGUI_T(KC_PGUP), MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_HOME),             MT(MOD_LCTL|MOD_LGUI,KC_END),            LT(_FUNCTIONS,KC_PGDN), KC_N,               KC_M,            KC_COMM, KC_DOT,  KC_SLSH, RCTL_T(KC_QUOT),
-                                               KC_LALT, LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC,         MT(MOD_LCTL|MOD_LALT,KC_DEL),                       MT(MOD_LALT|MOD_LGUI,KC_END), LT(_MOUSE,KC_SPC),      LT(_RAISE, KC_SPC), KC_RGUI,         KC_RALT
+      C_S_T(KC_TAB),  KC_Q,           KC_W,    KC_E,    LT(_MOUSE,KC_R),        KC_T,                                                                                                                                  KC_Y,               KC_U,            KC_I,    KC_O,    KC_P,    LCAG_T(KC_ESC),
+      KC_LSFT,        KC_A,           KC_S,    KC_D,    LT(_RAISE,KC_F),        KC_G,                                                                                                                                  KC_H,               LT(_RAISE,KC_J), KC_K,    KC_L,    KC_SCLN, RSFT_T(KC_ENT),
+      KC_LCTL,        LGUI_T(KC_Z),   KC_X,    KC_C,    KC_V,                   KC_B,       LGUI_T(KC_PGUP), MT(MOD_LCTL|MOD_LALT,KC_HOME),             MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_END), LT(_FUNCTIONS,KC_PGDN), KC_N,               KC_M,            KC_COMM, KC_DOT,  KC_SLSH, RCTL_T(KC_QUOT),
+                                               KC_LALT, LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC,         MT(MOD_LCTL|MOD_LALT,KC_HOME),             MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_END), LT(_MOUSE,KC_SPC),      LT(_RAISE, KC_SPC), KC_RGUI,         KC_RALT
     ),
 	
     [_COLEMAK] = LAYOUT(
