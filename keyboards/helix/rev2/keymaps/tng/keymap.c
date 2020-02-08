@@ -154,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_RAISE] = LAYOUT( \
-	KC_ESC , KC_1         , KC_2   , KC_3         , KC_4         , KC_5         ,                         KC_6        , KC_7        , KC_8      , KC_9   , KC_0   , _______, \
+	_______ , KC_1         , KC_2   , KC_3         , KC_4         , KC_5         ,                         KC_6        , KC_7        , KC_8      , KC_9   , KC_0   , _______, \
 	_______, XXXXXXX      , XXXXXXX, KC_CAPS      , XXXXXXX      , XXXXXXX      ,                         XXXXXXX     , KC_PGUP     , KC_UP     , KC_PGDN, XXXXXXX, _______, \
 	_______, XXXXXXX      , XXXXXXX, LCTL(KC_BSPC), XXXXXXX      , XXXXXXX      ,                         KC_HOME     , KC_LEFT     , KC_DOWN   , KC_RGHT, KC_END , _______, \
 	_______, XXXXXXX      , XXXXXXX, XXXXXXX      , XXXXXXX      , XXXXXXX      , _______      , KC_PGUP, MO(_ADJUST) , LSFT(KC_F10), KC_UNDS   , KC_PLUS, KC_PIPE, _______, \
@@ -193,7 +193,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* MOUSE
  */
   [_MOUSE] = LAYOUT( \
-	KC_ESC , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
 	_______, KC_ACL0, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U,                    KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_ACL0, _______, \
 	_______, KC_ACL1, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                    KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_ACL1, _______, \
 	_______, KC_ACL2, KC_WH_L, XXXXXXX, KC_WH_R, XXXXXXX, XXXXXXX , KC_PGUP, XXXXXXX, KC_WH_L, XXXXXXX, KC_WH_R, KC_ACL2, _______, \
@@ -647,11 +647,12 @@ void render_status(struct CharacterMatrix *matrix) {
   matrix_write_P(matrix, PSTR("\n"));
 
   // Host Keyboard LED Status
-  matrix_write_P(matrix, (host_keyboard_leds() & (1<<USB_LED_NUM_LOCK)) ?
+  uint8_t led_usb_state = host_keyboard_leds();
+  matrix_write_P(matrix, (led_usb_state & (1<<USB_LED_NUM_LOCK)) ?
                  PSTR("NUMLOCK") : PSTR("       "));
-  matrix_write_P(matrix, (host_keyboard_leds() & (1<<USB_LED_CAPS_LOCK)) ?
+  matrix_write_P(matrix, (led_usb_state & (1<<USB_LED_CAPS_LOCK)) ?
                  PSTR("CAPS") : PSTR("    "));
-  matrix_write_P(matrix, (host_keyboard_leds() & (1<<USB_LED_SCROLL_LOCK)) ?
+  matrix_write_P(matrix, (led_usb_state & (1<<USB_LED_SCROLL_LOCK)) ?
                  PSTR("SCLK") : PSTR("    "));
   matrix_write_P(matrix, PSTR("\n"));
   render_rgbled_status(true, matrix);

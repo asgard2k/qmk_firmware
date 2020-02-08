@@ -103,8 +103,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* RAISE
  */
  [_RAISE] = LAYOUT( \
-             KC_ESC,  _______, _______, _______,       _______, _______,        _______,     _______,      _______, _______, _______, _______, \
-             KC_ESC , _______, _______, _______,       _______, _______,        _______,     _______,      _______, _______, _______, _______, \
+             _______, _______, _______, _______,       _______, _______,        _______,     _______,      _______, _______, _______, _______, \
+             _______, _______, _______, _______,       _______, _______,        _______,     _______,      _______, _______, _______, _______, \
     XXXXXXX, _______, XXXXXXX, XXXXXXX, KC_CAPS      , XXXXXXX, XXXXXXX,        XXXXXXX,     KC_PGUP,      KC_UP,   KC_PGDN, XXXXXXX, _______, \
     _______, _______, XXXXXXX, XXXXXXX, LCTL(KC_BSPC), XXXXXXX, XXXXXXX,        KC_HOME,     KC_LEFT,      KC_DOWN, KC_RGHT, KC_END , _______, \
     _______, KC_DEL,  XXXXXXX, XXXXXXX, XXXXXXX      , XXXXXXX, XXXXXXX,        MO(_ADJUST), LSFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______, \
@@ -136,8 +136,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* MOUSE
  */
  [_MOUSE] = LAYOUT( \
-             KC_ESC,  _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, \
-             KC_ESC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+             _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, \
+             _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
     XXXXXXX, _______, KC_ACL0, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U,          KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_ACL0, _______, \
     _______, _______, KC_ACL1, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,          KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_ACL1, _______, \
     _______, _______, KC_ACL2, KC_WH_L, XXXXXXX, KC_WH_R, XXXXXXX,          XXXXXXX, KC_WH_L, XXXXXXX, KC_WH_R, KC_ACL2, _______, \
