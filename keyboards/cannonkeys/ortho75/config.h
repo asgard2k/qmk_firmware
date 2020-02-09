@@ -32,6 +32,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 15
 
 #define MATRIX_COL_PINS { B11, B10, B1, B0, A7, A6, A5, B14, A15, A0, C15, C14, B7, B6, B5 }
+// Tai N - changed row 1 to use B13 instead of B12. My blue pill had some issue with B12 and did not
+// respond to switch presses on that entire row. 
 #define MATRIX_ROW_PINS { B13, C13, A2, A1, A3 }
 #define DIODE_DIRECTION COL2ROW
 
