@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, LALT(KC_F4), XXXXXXX, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)) ,                    KC_EXLM, KC_AT  , KC_HASH, KC_LCBR, KC_RCBR, _______, 
 	_______, XXXXXXX    , XXXXXXX, LCTL(KC_PGUP), LCTL(KC_PGDN) , XXXXXXX            ,                    KC_DLR , KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______, \
 	_______, XXXXXXX    , XXXXXXX, XXXXXXX      , XXXXXXX       , XXXXXXX            , XXXXXXX, KC_PGUP,  _______, KC_PERC, KC_MINS, KC_EQL , KC_BSLS, _______, \
-	                               _______      , _______       , _______            , KC_DEL , KC_SPC,   KC_SPC,  _______, _______ \
+	                               _______      , _______       , _______            , KC_DEL , KC_SPC,   _______, _______, _______ \
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -157,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, XXXXXXX      , XXXXXXX, KC_CAPS      , XXXXXXX      , XXXXXXX      ,                         XXXXXXX     , KC_PGUP     , KC_UP     , KC_PGDN, XXXXXXX, _______, \
 	_______, XXXXXXX      , XXXXXXX, LCTL(KC_BSPC), XXXXXXX      , XXXXXXX      ,                         KC_HOME     , KC_LEFT     , KC_DOWN   , KC_RGHT, KC_END , _______, \
 	_______, XXXXXXX      , XXXXXXX, XXXXXXX      , XXXXXXX      , XXXXXXX      , XXXXXXX      , KC_PGUP, MO(_ADJUST) , LSFT(KC_F10), KC_UNDS   , KC_PLUS, KC_PIPE, _______, \
-	                                 _______      , _______      , _______      , KC_DEL       , _______, _______     , _______     , _______ \
+	                                 _______      , _______      , _______      , KC_DEL       , KC_SPC,  _______     , _______     , _______ \
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.

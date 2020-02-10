@@ -65,10 +65,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
-      C_S_T(KC_TAB),  KC_Q,           KC_W,    KC_E,            LT(_MOUSE,KC_R),        KC_T,                                                                                                                                  KC_Y,               KC_U,              KC_I,    KC_O,    KC_P,    LCAG_T(KC_ESC),
-      KC_LSFT,        KC_A,           KC_S,    KC_D,            LT(_RAISE,KC_F),        KC_G,                                                                                                                                  KC_H,               LT(_RAISE,KC_J),   KC_K,    KC_L,    KC_SCLN, RSFT_T(KC_ENT),
-      KC_LCTL,        LGUI_T(KC_Z),   KC_X,    KC_C,            LT(_NUMBERS,KC_V),      KC_B,       LGUI_T(KC_PGUP), XXXXXXX,                                   XXXXXXX,                               LT(_FUNCTIONS,KC_PGDN), KC_N,               LT(_NUMBERS,KC_M), KC_COMM, KC_DOT,  KC_SLSH, RCTL_T(KC_QUOT),
-                                               KC_LALT,         LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC,         MT(MOD_LCTL|MOD_LALT,KC_HOME),             MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_END), LT(_MOUSE,KC_SPC),      LT(_RAISE, KC_SPC), KC_RGUI,           KC_RALT
+      C_S_T(KC_TAB), KC_Q,         KC_W, KC_E,    LT(_MOUSE,KC_R),        KC_T,                                                                                                                                  KC_Y,               KC_U,              KC_I,    KC_O,   KC_P,    LCAG_T(KC_ESC),
+      KC_LSFT,       KC_A,         KC_S, KC_D,    LT(_RAISE,KC_F),        KC_G,                                                                                                                                  KC_H,               LT(_RAISE,KC_J),   KC_K,    KC_L,   KC_SCLN, RSFT_T(KC_ENT),
+      KC_LCTL,       LGUI_T(KC_Z), KC_X, KC_C,    LT(_NUMBERS,KC_V),      KC_B,       LGUI_T(KC_PGUP), XXXXXXX,                                   XXXXXXX,                               LT(_FUNCTIONS,KC_PGDN), KC_N,               LT(_NUMBERS,KC_M), KC_COMM, KC_DOT, KC_SLSH, RCTL_T(KC_QUOT),
+                                         KC_LALT, LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC,         MT(MOD_LCTL|MOD_LALT,KC_HOME),             MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_END), LT(_MOUSE,KC_SPC),      LT(_RAISE, KC_SPC), KC_RGUI,           KC_RALT
     ),
 	
     [_COLEMAK] = LAYOUT(
@@ -101,9 +101,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_LOWER] = LAYOUT(
       KC_ESC,  LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),                                              _______, _______, _______, KC_LCBR, KC_RCBR, _______,
-      _______, _______    , _______, LCTL(KC_PGUP), LCTL(KC_PGDN) , _______           ,                                              _______, KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______,
-      _______, _______    , _______, _______      , _______       , _______           , _______, XXXXXXX,          XXXXXXX, _______, KC_LPRN, KC_RPRN, KC_MINS, KC_EQL , KC_BSLS, _______,
-                                     _______,       _______,        _______,            _______, _______,          _______, _______, _______, _______, _______
+      _______, _______,     _______, LCTL(KC_PGUP), LCTL(KC_PGDN),  _______,                                                         _______, KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______,
+      _______, _______,     _______, _______,       _______,        _______,            _______, XXXXXXX,          XXXXXXX, _______, KC_LPRN, KC_RPRN, KC_MINS, KC_EQL , KC_BSLS, _______,
+                                     _______,       _______,        _______,            _______, _______,          _______, KC_SPC,  _______, _______, _______
     ),
 /*
  * Raise Layer: Number keys, media, navigation
@@ -120,10 +120,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_RAISE] = LAYOUT(
-      _______, _______, _______, KC_CAPS,       _______,       _______,                                              _______     , KC_PGUP     , KC_UP     , KC_PGDN, _______, _______,
-      _______, _______, _______, LCTL(KC_BSPC), LCTL(KC_BSPC), _______,                                              KC_HOME     , KC_LEFT     , KC_DOWN   , KC_RGHT, KC_END , _______,
-      _______, _______, _______, _______,       _______,       _______, _______, XXXXXXX,          XXXXXXX, KC_PGUP, _______,      LSFT(KC_F10), KC_UNDS   , KC_PLUS, KC_PIPE, _______,
-                                 _______,       _______,       _______, KC_DEL,  _______,          _______, _______, _______,      _______,      _______
+      _______, _______, _______, KC_CAPS,       _______,       _______,                                              _______, KC_PGUP,     KC_UP,   KC_PGDN, _______, _______,
+      _______, _______, _______, LCTL(KC_BSPC), LCTL(KC_BSPC), _______,                                              KC_HOME, KC_LEFT,     KC_DOWN, KC_RGHT, KC_END , _______,
+      _______, _______, _______, _______,       _______,       _______, _______, XXXXXXX,          XXXXXXX, KC_PGUP, _______, SFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______,
+                                 _______,       _______,       _______, KC_DEL,  _______,          _______, KC_SPC,  _______, _______,     _______
     ),
 /*
  * Adjust Layer: Function keys, RGB
