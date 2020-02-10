@@ -651,11 +651,11 @@ void render_status(struct CharacterMatrix *matrix) {
   // Host Keyboard LED Status
   uint8_t led_usb_state = host_keyboard_leds();
   matrix_write_P(matrix, (led_usb_state & (1<<USB_LED_NUM_LOCK)) ?
-                 PSTR("NUMLOCK") : PSTR("       "));
+                 PSTR("NUM ") : PSTR("    "));
   matrix_write_P(matrix, (led_usb_state & (1<<USB_LED_CAPS_LOCK)) ?
-                 PSTR("CAPS") : PSTR("    "));
+                 PSTR("CAPS ") : PSTR("     "));
   matrix_write_P(matrix, (led_usb_state & (1<<USB_LED_SCROLL_LOCK)) ?
-                 PSTR("SCLK") : PSTR("    "));
+                 PSTR("SCLK ") : PSTR("     "));
   matrix_write_P(matrix, PSTR("\n"));
   render_rgbled_status(true, matrix);
 }
