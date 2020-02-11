@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC,  LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),                                              _______, _______, _______, KC_LCBR, KC_RCBR, _______,
       _______, _______,     _______, LCTL(KC_PGUP), LCTL(KC_PGDN),  _______,                                                         _______, KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______,
       _______, _______,     _______, _______,       _______,        _______,            _______, XXXXXXX,          XXXXXXX, _______, KC_LPRN, KC_RPRN, KC_MINS, KC_EQL , KC_BSLS, _______,
-                                     _______,       _______,        _______,            _______, _______,          KC_SPC,  _______, _______, _______, _______
+                                     _______,       _______,        _______,            _______, KC_DEL,           KC_SPC,  _______, _______, _______, _______
     ),
 /*
  * Raise Layer: Number keys, media, navigation
