@@ -29,6 +29,7 @@ enum layer_number {
     _FUNCTIONS,
     _MOUSE,
     _NUMBERS,
+    _NUMBERS_LHALF, 
     // Moved these to bottom so the other layers can tap-hold to them 
     _COLEMAK,
     _DVORAK,
@@ -42,6 +43,7 @@ enum custom_keycodes {
   FUNCTIONS,
   MOUSE,
   NUMBERS,
+  NUMBERS_LHALF,
   // Moved these to bottom so the other layers can tap-hold to them 
   COLEMAK,
   DVORAK,
@@ -65,10 +67,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
-      C_S_T(KC_TAB), KC_Q,         KC_W, KC_E,    LT(_MOUSE,KC_R),        KC_T,                                                                                                                                  KC_Y,               KC_U,              KC_I,    KC_O,   KC_P,    LCAG_T(KC_ESC),
-      KC_LSFT,       KC_A,         KC_S, KC_D,    LT(_RAISE,KC_F),        KC_G,                                                                                                                                  KC_H,               LT(_RAISE,KC_J),   KC_K,    KC_L,   KC_SCLN, RSFT_T(KC_ENT),
-      KC_LCTL,       KC_Z,         KC_X, KC_C,    LT(_NUMBERS,KC_V),      KC_B,                   MT(MOD_LCTL|MOD_LALT,KC_PGUP), XXXXXXX,             XXXXXXX,           MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_PGDN), KC_N,               LT(_NUMBERS,KC_M), KC_COMM, KC_DOT, KC_SLSH, RCTL_T(KC_QUOT),
-                                         KC_LALT, KC_LGUI,                LT(_FUNCTIONS,KC_CAPS), MO(_LOWER),                    KC_BSPC,             LT(_MOUSE,KC_SPC), LT(_RAISE, KC_SPC),                     LT(_RAISE, KC_SPC), KC_RGUI,           KC_RALT
+      C_S_T(KC_TAB), KC_Q,         KC_W, KC_E,    LT(_MOUSE,KC_R),        KC_T,                                                                                                                                  KC_Y,               LT(_NUMBERS_LHALF,KC_U), KC_I,    KC_O,   KC_P,    LCAG_T(KC_ESC),
+      KC_LSFT,       KC_A,         KC_S, KC_D,    LT(_RAISE,KC_F),        KC_G,                                                                                                                                  KC_H,               LT(_RAISE,KC_J),         KC_K,    KC_L,   KC_SCLN, RSFT_T(KC_ENT),
+      KC_LCTL,       KC_Z,         KC_X, KC_C,    LT(_NUMBERS,KC_V),      KC_B,                   MT(MOD_LCTL|MOD_LALT,KC_PGUP), XXXXXXX,             XXXXXXX,           MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_PGDN), KC_N,               LT(_NUMBERS,KC_M),       KC_COMM, KC_DOT, KC_SLSH, RCTL_T(KC_QUOT),
+                                         KC_LALT, KC_LGUI,                LT(_FUNCTIONS,KC_CAPS), MO(_LOWER),                    KC_BSPC,             LT(_MOUSE,KC_SPC), LT(_RAISE, KC_SPC),                     LT(_RAISE, KC_SPC), KC_RGUI,                 KC_RALT
     ),
 	
     [_COLEMAK] = LAYOUT(
@@ -161,10 +163,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ),	
 	 
     [_NUMBERS] = LAYOUT(
-      KC_GRV,   KC_1,    LT(_DVORAK,KC_2),  KC_3,    KC_4,     KC_5,                                                 KC_6,    KC_7,    KC_8,    KC_9   , KC_0,    _______,
-      KC_TILD, 	KC_EXLM, KC_AT,             KC_HASH, KC_DLR,   KC_PERC,                                              KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-      _______, _______, _______,            _______, _______, _______, _______, XXXXXXX,          XXXXXXX, _______, _______, _______, _______, _______, _______, _______,
-                                            _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______
+      C_S_T(KC_GRV),  KC_1,    LT(_DVORAK,KC_2),  KC_3,    KC_4,    KC_5,                                                  KC_6,    KC_7,    KC_8,    KC_9   , KC_0,    _______,
+      KC_TILD, 	      KC_EXLM, KC_AT,             KC_HASH, KC_DLR,  KC_PERC,                                               KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+      _______,        _______, _______,           KC_LSFT, _______, _______, _______, XXXXXXX,          XXXXXXX, _______,  _______, _______, KC_RSFT, _______, _______, _______,
+                                                  _______, _______, _______, _______, _______,          _______, _______,  _______, _______, _______
+     ),
+	 
+	[_NUMBERS_LHALF] = LAYOUT(
+      C_S_T(KC_0),  KC_1, KC_2, KC_3,    KC_4,    KC_5,                                                 _______, _______, KC_RSFT, _______, _______, _______,
+      _______, 	    KC_4, KC_5, KC_6,    _______, _______,                                              _______, _______, _______, _______, _______, _______,
+      _______,      KC_7, KC_8, KC_9,    KC_0,    _______, _______, XXXXXXX,          XXXXXXX, _______, _______, _______, _______, _______, _______, _______,
+                                _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______
      )
 
 // /*
