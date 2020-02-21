@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT( \
 	C_S_T(KC_GRV)                , MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1) , LT(_DVORAK,KC_2)      , KC_3     , KC_4                  , KC_5                                                        , KC_6               , KC_7           , KC_8                    , KC_9           , KC_0           , LCAG_T(KC_ESC) , \
 	MT(MOD_LCTL|MOD_LALT,KC_TAB) , KC_Q                                , KC_W                  , KC_E     , LT(_MOUSE,KC_R)       , KC_T                                                        , KC_Y               , KC_U           , KC_I                    , KC_O           , KC_P           , KC_DEL         , \
-	KC_LSFT                      , KC_A                                , KC_S                  , KC_D     , LT(_RAISE,KC_F)       , KC_G                                                        , KC_H               , LT(_RAISE,KC_J), KC_K                    , KC_L           , KC_SCLN        , RSFT_T(KC_ENT), \
+	KC_LSFT                      , KC_A                                , KC_S                  , KC_D     , LT(_RAISE,KC_F)       , KC_G                                                        , KC_H               , KC_J,            KC_K                    , KC_L           , KC_SCLN        , RSFT_T(KC_ENT), \
 	KC_LCTL                      , LGUI_T(KC_Z)                        , KC_X                  , KC_C     , KC_V                  , KC_B      , LGUI_T(KC_PGUP)       , LT(_FUNCTIONS,KC_PGDN)  , KC_N               , KC_M           , KC_COMM                 , KC_DOT         , KC_SLSH        , RCTL_T(KC_QUOT) , \
 	                                                                                             KC_LALT  , LT(_FUNCTIONS,KC_CAPS), MO(_LOWER), KC_BSPC               , LT(_MOUSE,KC_SPC)       , LT(_RAISE, KC_SPC) , KC_RGUI        , KC_RALT\
 ),
@@ -214,7 +214,7 @@ void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
 void keyboard_post_init_user(void) {
   // Call the post init code.
   
-  rgblight_setrgb(RGB_GREEN);
+  rgblight_setrgb(RGB_PURPLE);
   //rgblight_set(); // Utility functions do not call rgblight_set() automatically, so they need to be called explicitly.
 
     
