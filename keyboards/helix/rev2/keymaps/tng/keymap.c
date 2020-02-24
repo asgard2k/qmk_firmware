@@ -368,7 +368,10 @@ void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
   }
 }
 
-void keyboard_post_init_user(void) {
+//////////////////////////////////////////////////////////////
+// My helix doesn't like this for some reason. The left side keeps rebooting (sometimes after pressing some keys)
+//////////////////////////////////////////////////////////////
+/* void keyboard_post_init_user(void) {
   // Call the post init code.
   
   rgblight_setrgb(RGB_PURPLE);
@@ -376,8 +379,8 @@ void keyboard_post_init_user(void) {
 
     
   //default_layer_state = QWERTY;
-  set_single_persistent_default_layer(_QWERTY);
-}
+  // persistent_default_layer_set(1UL<<_QWERTY);
+} */
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
