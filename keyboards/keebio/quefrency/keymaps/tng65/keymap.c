@@ -35,11 +35,11 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_65(
-    C_S_T(KC_GRV),                MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1), LT(_DVORAK,KC_2), KC_3,       KC_4,            KC_5,    KC_6,                KC_7,               KC_8,                   KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_DEL,         LCAG_T(KC_ESC), KC_HOME, \
-    MT(MOD_LCTL|MOD_LALT,KC_TAB), KC_Q,                                KC_W,             KC_E,       LT(_MOUSE,KC_R), KC_T,                         KC_Y,               KC_U,                   KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,        KC_BSLS,        KC_END, \
-    LSFT_T(KC_CAPS),              KC_A,                                KC_S,             KC_D,       LT(_RAISE,KC_F), KC_G,                         KC_H,               KC_J,                   KC_K,    KC_L,    KC_SCLN, KC_QUOT, RSFT_T(KC_ENT), KC_PGUP, \
-    KC_LSFT,                      KC_Z,                                KC_X,             KC_C,       KC_V,            KC_B,                         KC_N,               KC_M,                   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,          KC_PGDN, \
-    KC_LCTL,                      KC_LGUI,                             KC_LALT,          MO(_LOWER), KC_BSPC,                                       LT(_RAISE, KC_SPC), LT(_FUNCTIONS, KC_SPC), KC_RALT, KC_RGUI, KC_RCTL, KC_LEFT, KC_DOWN,        KC_RGHT
+    C_S_T(KC_GRV),                MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1), LT(_DVORAK,KC_2), KC_3,          KC_4,                   KC_5,    KC_6,                KC_7,               KC_8,                   KC_9,            KC_0,            KC_MINS, KC_EQL,  KC_DEL,         LCAG_T(KC_ESC), KC_HOME, \
+    MT(MOD_LCTL|MOD_LALT,KC_TAB), KC_Q,                                KC_W,             KC_E,          LT(_MOUSE,KC_R),        KC_T,                         KC_Y,               KC_U,                   KC_I,            KC_O,            KC_P,    KC_LBRC, KC_RBRC,        KC_BSLS,        KC_END, \
+    LSFT_T(KC_CAPS),              KC_A,                                KC_S,             KC_D,          LT(_RAISE,KC_F),        KC_G,                         KC_H,               KC_J,                   KC_K,            KC_L,            KC_SCLN, KC_QUOT, RSFT_T(KC_ENT), KC_PGUP, \
+    KC_LSFT,                      KC_Z,                                LCTL_T(KC_X),     LGUI_T(KC_C),  LALT_T(KC_V),           KC_B,                         KC_N,               RALT_T(KC_M),           RGUI_T(KC_COMM), RCTL_T(KC_DOT),  KC_SLSH, KC_RSFT, KC_UP,          KC_PGDN, \
+    KC_LCTL,                      KC_LGUI,                             KC_LALT,          MO(_LOWER),    LT(_FUNCTIONS,KC_BSPC),                               LT(_RAISE, KC_SPC), LT(_FUNCTIONS, KC_SPC), KC_RALT,         KC_RGUI,         KC_RCTL, KC_LEFT, KC_DOWN,        KC_RGHT
   ),
   
   [_COLEMAK] = LAYOUT_65(
@@ -59,19 +59,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   
   [_LOWER] = LAYOUT_65(
-    _______, _______,     _______, _______,       _______,        _______,            _______,             _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),                      _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______,     _______, LCTL(KC_PGUP), LCTL(KC_PGDN),  _______,                                 _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______,     _______, _______,       _______,        _______,                                 _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______,     _______, _______,       _______,                                                 _______, _______, _______, _______, _______, _______, _______, _______
+    _______, _______,     _______, _______,       _______,        _______,            _______,             KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, _______, _______, _______, _______, \
+    _______, LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),                      _______, KC_AT  , KC_HASH, KC_LCBR, KC_RCBR, _______, _______, _______, _______, \
+    _______, _______,     _______, LCTL(KC_PGUP), LCTL(KC_PGDN),  _______,                                 _______, KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______, _______, _______, \
+    _______, _______,     _______, _______,       _______,        _______,                                 _______, KC_PERC, KC_MINS, KC_EQL , KC_BSLS, _______, _______, _______, \
+    _______, _______,     _______, _______,       KC_BSPC,                                                 KC_SPC,  KC_SPC,  _______, _______, _______, _______, _______, _______
   ),
   
   [_RAISE] = LAYOUT_65(
-    _______, _______, _______, _______,       _______, _______, _______,             _______,     _______,      _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, KC_CAPS,       _______, _______,                      _______,     KC_PGUP,      KC_UP,   KC_PGDN, _______, _______, _______, _______, _______, \
-    _______, _______, _______, LCTL(KC_BSPC), _______, _______,                      KC_HOME,     KC_LEFT,      KC_DOWN, KC_RGHT, KC_END , _______, _______, _______, \
-    _______, _______, _______, _______,       _______, _______,                      MO(_ADJUST), LSFT(KC_F10), _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______,       _______,                               _______,     KC_SPC,       _______, _______, _______, _______, _______, _______
+    _______, _______, _______, _______,           _______,        _______,           _______,              _______,     _______,      _______, _______, _______, _______, _______, _______, _______, \
+    _______, _______, _______, KC_CAPS,           _______,        _______,                                 _______,     KC_PGUP,      KC_UP,   KC_PGDN, _______, _______, _______, _______, _______, \
+    _______, _______, _______, LCTL(KC_BSPC),     _______,        _______,                                 KC_HOME,     KC_LEFT,      KC_DOWN, KC_RGHT, KC_END , _______, _______, _______, \
+    _______, _______, _______, _______,           _______,        _______,                                 MO(_ADJUST), LSFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______, _______, _______, \
+    _______, _______, _______, _______,           KC_BSPC,                                                 _______,     KC_SPC,       _______, _______, _______, _______, _______, _______
   ),
   
   [_ADJUST] = LAYOUT_65(
@@ -99,7 +99,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )           
 };
 
-void keyboard_post_init_user(void) {
+// Need to research more on this. Seems like only master side gets affected.
+/* void keyboard_post_init_user(void) {
   // Call the post init code.
   
   rgblight_setrgb(RGB_PURPLE);
@@ -108,7 +109,7 @@ void keyboard_post_init_user(void) {
     
   //default_layer_state = QWERTY;
   set_single_persistent_default_layer(_QWERTY);
-}
+} */
 
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
