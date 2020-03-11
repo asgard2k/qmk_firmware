@@ -158,7 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RAISE] = LAYOUT( \
 	KC_ESC , KC_1         , KC_2   , KC_3         , KC_4         , KC_5         ,                         KC_6        , KC_7        , KC_8      , KC_9   , KC_0   , _______, \
 	_______, _______      , _______, KC_CAPS      , _______      , _______      ,                         _______     , KC_PGUP     , KC_UP     , KC_PGDN, _______, _______, \
-	_______, _______      , _______, LCTL(KC_BSPC), _______      , _______      ,                         KC_HOME     , KC_LEFT     , KC_DOWN   , KC_RGHT, KC_END , _______, \
+	_______, LCTL(KC_BSPC), _______, LCTL(KC_BSPC), _______      , _______      ,                         KC_HOME     , KC_LEFT     , KC_DOWN   , KC_RGHT, KC_END , _______, \
 	_______, _______      , _______, _______      , _______      , _______      , _______      , KC_PGUP, MO(_ADJUST) , LSFT(KC_F10), KC_UNDS   , KC_PLUS, KC_PIPE, _______, \
 	_______, _______      , _______, _______      , _______      , _______      , KC_DEL       , KC_SPC,  _______     , _______     , _______   , _______, _______, _______ \
       ),
