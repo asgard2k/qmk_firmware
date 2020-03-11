@@ -44,10 +44,10 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_ortho_4x12( \
-  C_S_T(KC_TAB),   KC_Q,    KC_W,    KC_E,           LT(_MOUSE,KC_R),   KC_T,                               KC_Y,              LT(_NUMBERS_LHALF,KC_U), KC_I,            KC_O,           KC_P,            LCAG_T(KC_ESC), \
-  LSFT_T(KC_CAPS), KC_A,    KC_S,    KC_D,           LT(_RAISE,KC_F),   KC_G,                               KC_H,              KC_J,                    KC_K,            KC_L,           KC_SCLN,         RSFT_T(KC_ENT), \
-  KC_LSFT,         KC_Z,    KC_X,    KC_C,           LT(_NUMBERS,KC_V), KC_B,                               KC_N,              LT(_NUMBERS,KC_M),       RALT_T(KC_COMM), RGUI_T(KC_DOT), RCTL_T(KC_SLSH), MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_QUOT), \
-  KC_LCTL,         KC_LGUI, KC_LALT, MO(_FUNCTIONS), MO(_LOWER),        LT(_FUNCTIONS,KC_BSPC),             LT(_RAISE,KC_SPC), LT(_FUNCTIONS,KC_SPC),   KC_DEL,          KC_RALT,        KC_RGUI,         KC_RCTL \
+  C_S_T(KC_TAB),   KC_Q,    KC_W,    KC_E,           LT(_MOUSE,KC_R),   KC_T,                               KC_Y,              LT(_NUMBERS_LHALF,KC_U), KC_I,                           KC_O,           KC_P,            LCAG_T(KC_ESC), \
+  LSFT_T(KC_CAPS), KC_A,    KC_S,    KC_D,           LT(_RAISE,KC_F),   KC_G,                               KC_H,              KC_J,                    KC_K,                           KC_L,           KC_SCLN,         RSFT_T(KC_ENT), \
+  KC_LSFT,         KC_Z,    KC_X,    KC_C,           LT(_NUMBERS,KC_V), KC_B,                               KC_N,              LT(_NUMBERS,KC_M),       RALT_T(KC_COMM),                RGUI_T(KC_DOT), RCTL_T(KC_SLSH), MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_QUOT), \
+  KC_LCTL,         KC_LGUI, KC_LALT, MO(_FUNCTIONS), MO(_LOWER),        LT(_FUNCTIONS,KC_BSPC),             LT(_RAISE,KC_SPC), LT(_FUNCTIONS,KC_SPC),   MT(MOD_LCTL|MOD_LALT,KC_DEL),   KC_RALT,        KC_RGUI,         KC_RCTL \
 ),
 
 
@@ -69,14 +69,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,  LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),                 _______, _______, _______, KC_LCBR, KC_RCBR, _______, \
   _______, _______,     _______, LCTL(KC_PGUP), LCTL(KC_PGDN),  _______,                            _______, KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______, \
   _______, _______,     _______, _______,       _______,        _______,                            KC_LPRN, KC_RPRN, KC_MINS, KC_EQL , KC_BSLS, _______, \
-  _______, _______,     _______, _______,       _______,        KC_DEL,                             KC_SPC,  _______, _______, _______, _______, _______ \
+  _______, _______,     _______, _______,       _______,        KC_BSPC,                            KC_SPC,  _______, KC_DEL,  _______, _______, _______ \
 ),
 
 [_RAISE] =  LAYOUT_ortho_4x12( \
-  _______, _______, _______, KC_CAPS,       _______,       _______,                 _______,     KC_PGUP,      KC_UP,   KC_PGDN, _______, _______, \
-  _______, _______, _______, LCTL(KC_BSPC), LCTL(KC_BSPC), _______,                 KC_HOME,     KC_LEFT,      KC_DOWN, KC_RGHT, KC_END , _______, \
-  _______, _______, _______, _______,       _______,       _______,                 MO(_ADJUST), LSFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______, \
-  _______, _______, _______, _______,       _______,       KC_DEL,                  KC_SPC,      _______,      _______, _______, _______, _______ \
+  _______, _______,       _______, KC_CAPS,       _______, _______,                 _______,     KC_PGUP,      KC_UP,   KC_PGDN, _______, _______, \
+  _______, LCTL(KC_BSPC), _______, LCTL(KC_BSPC), _______, _______,                 KC_HOME,     KC_LEFT,      KC_DOWN, KC_RGHT, KC_END , _______, \
+  _______, _______,       _______, _______,       _______, _______,                 MO(_ADJUST), LSFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______, \
+  _______, _______,       _______, _______,       _______, KC_BSPC,                 KC_SPC,      _______,      KC_DEL,  _______, _______, _______ \
 ),
 
 [_ADJUST] =  LAYOUT_ortho_4x12( \
