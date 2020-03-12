@@ -41,6 +41,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define ONESHOT_TIMEOUT 500
 
+#define PERMISSIVE_HOLD
+
+#define TAPPING_FORCE_HOLD
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 200
 
 /* key combination for command */
 #define IS_COMMAND() ( \
