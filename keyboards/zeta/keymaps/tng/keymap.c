@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_ortho_4x12( \
   C_S_T(KC_TAB),   KC_Q,    KC_W,    KC_E,           LT(_MOUSE,KC_R),   KC_T,                               KC_Y,              KC_U,                    KC_I,                           KC_O,           KC_P,            LCAG_T(KC_ESC), \
-  LSFT_T(KC_CAPS), KC_A,    KC_S,    KC_D,           LT(_RAISE,KC_F),   KC_G,                               KC_H,              KC_J,                    KC_K,                           KC_L,           KC_SCLN,         RSFT_T(KC_ENT), \
+  LSFT_T(KC_CAPS), KC_A,    KC_S,    KC_D,           LT(_RAISE,KC_F),   KC_G,                               KC_H,              LT(_NUMBERS,KC_J),       KC_K,                           KC_L,           KC_SCLN,         RSFT_T(KC_ENT), \
   KC_LSFT,         KC_Z,    KC_X,    KC_C,           LT(_NUMBERS,KC_V), KC_B,                               KC_N,              LT(_NUMBERS,KC_M),       RALT_T(KC_COMM),                RGUI_T(KC_DOT), RCTL_T(KC_SLSH), MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_QUOT), \
   KC_LCTL,         KC_LGUI, KC_LALT, MO(_FUNCTIONS), MO(_LOWER),        LT(_FUNCTIONS,KC_BSPC),             LT(_RAISE,KC_SPC), LT(_FUNCTIONS,KC_SPC),   MT(MOD_LCTL|MOD_LALT,KC_DEL),   KC_RALT,        KC_RGUI,         KC_RCTL \
 ),
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_RAISE] =  LAYOUT_ortho_4x12( \
-  _______, _______,       _______, KC_CAPS,       _______, _______,                 _______,     KC_PGUP,      KC_UP,   KC_PGDN, _______, _______, \
+  _______, _______,       _______, KC_CAPS,       _______, _______,                 _______,     KC_PGUP,      KC_UP,   KC_PGDN, _______, KC_DEL, \
   _______, LCTL(KC_BSPC), _______, LCTL(KC_BSPC), _______, _______,                 KC_HOME,     KC_LEFT,      KC_DOWN, KC_RGHT, KC_END , _______, \
   _______, _______,       _______, _______,       _______, _______,                 MO(_ADJUST), LSFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______, \
   _______, _______,       _______, _______,       _______, KC_BSPC,                 KC_SPC,      KC_SPC,       KC_DEL,  _______, _______, _______ \
@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NUMBERS] =  LAYOUT_ortho_4x12( \
   C_S_T(KC_GRV), KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                  KC_6,    KC_7,    KC_8,    KC_9   , KC_0,    _______, \
-  _______,       _______, _______, _______, _______, _______,               _______, _______, _______, _______, _______, _______, \
+  _______,       _______, _______, KC_LSFT, KC_LSFT, _______,               _______, _______, KC_RSFT, _______, _______, _______, \
   _______,       _______, _______, KC_LSFT, _______, _______,               _______, _______, KC_RSFT, _______, _______, _______, \
   _______,       _______, _______, _______, _______, _______,               _______, _______, _______, _______, _______, _______ \
 ),
