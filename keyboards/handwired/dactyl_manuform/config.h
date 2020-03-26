@@ -49,6 +49,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Enables This makes it easier for fast typists to use dual-function keys */
 #define PERMISSIVE_HOLD
 
+//[from Tai] I added it to improve tap hold handling
+#define TAPPING_FORCE_HOLD
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 200
+
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
