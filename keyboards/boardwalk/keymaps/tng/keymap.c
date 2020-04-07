@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * '-----------------------------------------------------------------------------------------------------------------------------'
      */
     [_QWERTY] = LAYOUT_ortho_5x14(
-        C_S_T(KC_GRV),                 MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1), LT(_DVORAK,KC_2),    KC_3,           KC_4,               KC_5,                              KC_INS,                 KC_PSCR,                       KC_6,                KC_7,       KC_8,            KC_9,            KC_0,            LCAG_T(KC_ESC),
+        C_S_T(KC_GRV),                 MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1), LT(_DVORAK,KC_2),    KC_3,           KC_4,               KC_5,                              KC_INS,                 KC_PSCR,                       KC_6,                KC_7,       KC_8,            KC_9,            KC_0,            LCAG_T(KC_BSPC),
         MT(MOD_LCTL|MOD_LALT,KC_TAB),  KC_Q,                                KC_W,                KC_E,           LT(_MOUSE,KC_R),    KC_T,                              KC_HOME,                KC_PGUP,                       KC_Y,                KC_U,       KC_I,            KC_O,            KC_P,            KC_DEL,
         LSFT_T(KC_CAPS),               KC_A,                                KC_S,                KC_D,           LT(_RAISE,KC_F),    KC_G,                              KC_END,                 KC_PGDN,                       KC_H,                KC_J,       KC_K,            KC_L,            KC_SCLN,         RSFT_T(KC_ENT),
         KC_LSFT,                       KC_Z,                                KC_X,                KC_C,           KC_V,               KC_B,                              KC_END,                 KC_PGDN,                       KC_N,                KC_M,       RALT_T(KC_COMM), RGUI_T(KC_DOT),  RCTL_T(KC_SLSH), RCTL_T(KC_QUOT),
@@ -74,13 +74,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_DVORAK] = LAYOUT_ortho_5x14(
         _______, _______, _______, _______, _______, _______,                     _______, _______,                     _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                     _______, _______,                     _______, _______, _______, _______, _______, _______,
-        _______, RGB_TOG, RGB_MOD,  RGB_HUI, RGB_SAI, RGB_VAI,                     _______, _______,                     _______, _______, _______, _______, _______, _______,
-        _______, RGB_M_P, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD,                     _______, _______,                     _______, _______, _______, _______, _______, _______,
+        _______, RGB_TOG, RGB_MOD,  RGB_HUI, RGB_SAI, RGB_VAI,                    _______, _______,                     _______, _______, _______, _______, _______, _______,
+        _______, RGB_M_P, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD,                    _______, _______,                     _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                     _______, _______,                     _______, _______, _______, _______, _______, _______
      ),	
 
     [_LOWER] = LAYOUT_ortho_5x14(
-        KC_ESC,  _______,     _______, _______,       _______,        _______,                     _______, _______,                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+        KC_ESC,  _______,     _______, _______,       _______,        _______,                     _______, _______,                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_ESC,
         _______, LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),          _______, _______,                     _______, _______, _______, KC_LCBR, KC_RCBR, _______,
         _______, _______,     _______, LCTL(KC_PGUP), LCTL(KC_PGDN),  _______,                     _______, _______,                     _______, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, _______,
         _______, _______,     _______, _______,       _______,        _______,                     _______, _______,                     KC_LPRN, KC_RPRN, KC_MINS, KC_EQL , KC_BSLS, _______,
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 	
     [_RAISE] = LAYOUT_ortho_5x14(
-        _______, _______,       _______, _______,       _______, _______,                     _______, _______,                     _______,     _______,      _______, _______,  _______, _______,
+        KC_ESC,  _______,       _______, _______,       _______, _______,                     _______, _______,                     _______,     _______,      _______, _______,  _______, KC_ESC,
         _______, _______,       _______, KC_CAPS,       _______, _______,                     _______, _______,                     _______,     KC_PGUP,      KC_UP,   KC_PGDN,  _______, _______,
         _______, LCTL(KC_BSPC), _______, LCTL(KC_BSPC), _______, _______,                     _______, _______,                     KC_HOME,     KC_LEFT,      KC_DOWN, KC_RGHT,  KC_END , _______,
         _______, _______,       _______, _______,       _______, _______,                     _______, _______,                     MO(_ADJUST), LSFT(KC_F10), KC_UNDS, KC_PLUS,  KC_PIPE, _______,
@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 	
     [_FUNCTIONS] = LAYOUT_ortho_5x14(
-        KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,      KC_F,                        DYN_REC_START1,  DYN_REC_START2,                     KC_F6,   KC_F7,        KC_F8,  KC_F9,    KC_F10,  _______,
+        KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,      KC_F5,                       DYN_REC_START1,  DYN_REC_START2,                     KC_F6,   KC_F7,        KC_F8,  KC_F9,    KC_F10,  KC_ESC,
         _______, KC_F11,  KC_F12,  _______, _______,    _______,                     DYN_REC_STOP,    DYN_REC_STOP,                       _______, _______,      KC_INS, _______,  KC_PSCR, LCA(KC_DEL),
         _______, _______, KC_SLCK, _______, _______,    _______,                     DYN_MACRO_PLAY1, DYN_MACRO_PLAY2,                    _______, _______,      _______, _______, KC_PAUS, _______,
         _______, _______, _______, _______, LCTL(KC_V), _______,                     DYN_MACRO_PLAY1, DYN_MACRO_PLAY2,                    KC_NLCK, LSFT(KC_F10), _______, _______, _______, _______,
