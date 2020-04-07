@@ -44,7 +44,7 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_ortho_4x12( \
-  C_S_T(KC_TAB),   KC_Q,    KC_W,    KC_E,                    LT(_MOUSE,KC_R),   KC_T,                               KC_Y,              KC_U,                    KC_I,                           KC_O,           KC_P,            LCAG_T(KC_ESC), \
+  C_S_T(KC_TAB),   KC_Q,    KC_W,    KC_E,                    LT(_MOUSE,KC_R),   KC_T,                               KC_Y,              KC_U,                    KC_I,                           KC_O,           KC_P,            LCAG_T(KC_BSPC), \
   LSFT_T(KC_CAPS), KC_A,    KC_S,    LT(_NUMBERS_LHALF,KC_D), LT(_RAISE,KC_F),   KC_G,                               KC_H,              LT(_NUMBERS,KC_J),       LT(_NUMBERS_LHALF,KC_K),        KC_L,           KC_SCLN,         RSFT_T(KC_ENT), \
   KC_LSFT,         KC_Z,    KC_X,    KC_C,                    LT(_NUMBERS,KC_V), KC_B,                               KC_N,              LT(_NUMBERS,KC_M),       RALT_T(KC_COMM),                RGUI_T(KC_DOT), RCTL_T(KC_SLSH), MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_QUOT), \
   KC_LCTL,         KC_LGUI, KC_LALT, MO(_FUNCTIONS),          MO(_LOWER),        LT(_FUNCTIONS,KC_BSPC),             LT(_RAISE,KC_SPC), LT(_FUNCTIONS,KC_SPC),   MT(MOD_LCTL|MOD_LALT,KC_DEL),   KC_RALT,        KC_RGUI,         KC_RCTL \
@@ -66,14 +66,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
               
 [_LOWER] =  LAYOUT_ortho_4x12( \
-  KC_ESC,  LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),                 _______, _______, _______, KC_LCBR, KC_RCBR, _______, \
+  KC_ESC,  LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),                 _______, _______, _______, KC_LCBR, KC_RCBR, KC_ESC, \
   _______, _______,     _______, LCTL(KC_PGUP), LCTL(KC_PGDN),  _______,                            _______, KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______, \
   _______, _______,     _______, _______,       _______,        _______,                            KC_LPRN, KC_RPRN, KC_MINS, KC_EQL , KC_BSLS, _______, \
   _______, _______,     _______, _______,       _______,        KC_BSPC,                            KC_SPC,  KC_SPC,  KC_DEL,  _______, _______, _______ \
 ),
 
 [_RAISE] =  LAYOUT_ortho_4x12( \
-  _______, _______,       _______, KC_CAPS,       _______, _______,                 _______,     KC_PGUP,      KC_UP,   KC_PGDN, _______, _______, \
+  KC_ESC,  _______,       _______, KC_CAPS,       _______, _______,                 _______,     KC_PGUP,      KC_UP,   KC_PGDN, _______, KC_ESC, \
   _______, LCTL(KC_BSPC), _______, LCTL(KC_BSPC), _______, _______,                 KC_HOME,     KC_LEFT,      KC_DOWN, KC_RGHT, KC_END , _______, \
   _______, _______,       _______, _______,       _______, _______,                 MO(_ADJUST), LSFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______, \
   _______, _______,       _______, _______,       _______, KC_BSPC,                 KC_SPC,      KC_SPC,       KC_DEL,  _______, _______, _______ \
@@ -87,14 +87,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_FUNCTIONS] =  LAYOUT_ortho_4x12( \
-  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,      KC_F5,                   KC_F6,   KC_F7,        KC_F8,   KC_F9,   KC_F10,     LCA(KC_DEL), \
+  KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,      KC_F5,                   KC_F6,   KC_F7,        KC_F8,   KC_F9,   KC_F10,     LCA(KC_DEL), \
   _______, KC_F11,  KC_F12,  _______, _______,    _______,                 _______, _______,      _______, _______, KC_PSCR,    _______, \
   _______, _______, _______, _______, LCTL(KC_V), _______,                 _______, LSFT(KC_F10), _______, _______, _______,    _______, \
   _______, _______, _______, _______, _______,    _______,                 _______, _______,      _______, _______, _______,    _______ \
 ),
 
 [_MOUSE] =  LAYOUT_ortho_4x12( \
-  _______, _______, _______, _______, _______, _______,                 KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_ACL0, _______, \
+  KC_ESC,  _______, _______, _______, _______, _______,                 KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_ACL0, KC_ESC, \
   _______, _______, _______, _______, _______, _______,                 KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_ACL1, _______, \
   _______, _______, _______, _______, _______, _______,                 _______, KC_WH_L, _______, KC_WH_R, KC_ACL2, _______, \
   _______, _______, _______, _______, _______, KC_DEL,                  _______, _______, _______, _______, _______, _______ \
