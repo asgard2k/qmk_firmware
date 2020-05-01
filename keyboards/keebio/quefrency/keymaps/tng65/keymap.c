@@ -35,10 +35,10 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_65(
-    C_S_T(KC_GRV),                MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1), LT(_DVORAK,KC_2), KC_3,          KC_4,                   KC_5,    KC_6,                KC_7,               KC_8,                   KC_9,            KC_0,            KC_MINS,          KC_EQL,  KC_DEL,         LCAG_T(KC_ESC), DYN_REC_START1, \
-    MT(MOD_LCTL|MOD_LALT,KC_TAB), KC_Q,                                KC_W,             KC_E,          LT(_MOUSE,KC_R),        KC_T,                         KC_Y,               KC_U,                   KC_I,            KC_O,            KC_P,             KC_LBRC, KC_RBRC,        KC_BSLS,        DYN_REC_STOP, \
-    LSFT_T(KC_CAPS),              KC_A,                                KC_S,             KC_D,          LT(_RAISE,KC_F),        KC_G,                         KC_H,               KC_J,                   KC_K,            KC_L,            KC_SCLN,          KC_QUOT, RSFT_T(KC_ENT), DYN_MACRO_PLAY1, \
-    KC_LSFT,                      KC_Z,                                KC_X,             KC_C,          KC_V,                   KC_B,                         KC_N,               KC_M,                   RALT_T(KC_COMM), RGUI_T(KC_DOT),  RCTL_T(KC_SLSH),  KC_RSFT, KC_UP,          MO(_FUNCTIONS), \
+    C_S_T(KC_GRV),                MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1), LT(_DVORAK,KC_2), KC_3,          KC_4,                   KC_5,    KC_6,                KC_7,               KC_8,                   KC_9,            KC_0,            KC_MINS,          KC_EQL,  KC_DEL,         LCAG_T(KC_ESC), KC_HOME, \
+    MT(MOD_LCTL|MOD_LALT,KC_TAB), KC_Q,                                KC_W,             KC_E,          LT(_MOUSE,KC_R),        KC_T,                         KC_Y,               KC_U,                   KC_I,            KC_O,            KC_P,             KC_LBRC, KC_RBRC,        KC_BSLS,        KC_END, \
+    LSFT_T(KC_CAPS),              KC_A,                                KC_S,             KC_D,          LT(_RAISE,KC_F),        KC_G,                         KC_H,               KC_J,                   KC_K,            KC_L,            KC_SCLN,          KC_QUOT, RSFT_T(KC_ENT), KC_PGUP, \
+    KC_LSFT,                      KC_Z,                                KC_X,             KC_C,          KC_V,                   KC_B,                         KC_N,               KC_M,                   RALT_T(KC_COMM), RGUI_T(KC_DOT),  RCTL_T(KC_SLSH),  KC_RSFT, KC_UP,          KC_PGDN, \
     KC_LCTL,                      KC_LGUI,                             KC_LALT,          MO(_LOWER),    LT(_FUNCTIONS,KC_BSPC),                               LT(_RAISE, KC_SPC), MO(_FUNCTIONS),         KC_RALT,         KC_RGUI,         KC_RCTL,          KC_LEFT, KC_DOWN,        KC_RGHT
   ),
   
@@ -60,9 +60,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   
   [_LOWER] = LAYOUT_65(
     KC_ESC,  _______,     _______, _______,       _______,        _______,            _______,             KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, _______, _______, _______, _______, \
-    _______, LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),                      _______, KC_AT  , KC_HASH, KC_LCBR, KC_RCBR, _______, _______, _______, _______, \
+    _______, LALT(KC_F4), _______, LALT(KC_LEFT), LALT(KC_RIGHT), LCTL(LSFT(KC_ESC)),                      _______, _______, _______, KC_LCBR, KC_RCBR, _______, _______, _______, _______, \
     _______, _______,     _______, LCTL(KC_PGUP), LCTL(KC_PGDN),  _______,                                 _______, KC_LT  , KC_GT  , KC_LBRC, KC_RBRC, _______, _______, _______, \
-    _______, _______,     _______, _______,       _______,        _______,                                 _______, KC_PERC, KC_MINS, KC_EQL , KC_BSLS, _______, _______, _______, \
+    _______, _______,     _______, _______,       _______,        _______,                                 KC_LPRN, KC_RPRN, KC_MINS, KC_EQL , KC_BSLS, _______, _______, _______, \
     _______, _______,     _______, _______,       KC_BSPC,                                                 KC_SPC,  _______, _______, _______, _______, _______, _______, _______
   ),
   
@@ -83,19 +83,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   
   [_FUNCTIONS] = LAYOUT_65(
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,      KC_F5,   KC_F16,           KC_F7,   KC_F8,        KC_F9,  KC_F10,   KC_F11,  KC_F12,  LCA(KC_DEL), _______,          DYN_REC_START2, \
-    _______, _______, _______, _______, _______,    _______,                   _______, _______,      KC_INS,  _______, KC_PSCR, _______, _______,     _______,          _______, \
-    _______, _______, KC_SLCK, _______, _______,    _______,                   _______, _______,      _______, _______, KC_PAUS, _______, _______,     DYN_MACRO_PLAY2, \
-    _______, _______, _______, _______, LCTL(KC_V), _______,                   KC_NLCK, LSFT(KC_F10), _______, _______, _______, _______, _______,     _______, \
-    _______, _______, _______, _______, KC_DEL,                                _______, _______,      _______, _______, _______, _______, _______,     _______
+    KC_ESC,  KC_F1,         KC_F2,   KC_F3,   KC_F4,      KC_F5,   KC_F16,           KC_F7,   KC_F8,        KC_F9,  KC_F10,   KC_F11,  KC_F12,  LCA(KC_DEL), _______,          DYN_REC_START2, \
+    _______, _______,       _______, _______, _______,    _______,                   _______, _______,      KC_INS,  _______, KC_PSCR, _______, _______,     _______,          _______, \
+    _______, LCTL(KC_BSPC), _______, _______, _______,    _______,                   _______, _______,      _______, _______, _______, _______, _______,     DYN_MACRO_PLAY2, \
+    _______, _______,       _______, _______, LCTL(KC_V), _______,                   _______, LSFT(KC_F10), KC_COMM, KC_DOT,  KC_SLSH, _______, _______,     _______, \
+    _______, _______,       _______, _______, _______,                               _______, _______,      _______, _______, _______, _______, _______,     _______
   ),
   
   [_MOUSE] = LAYOUT_65(
-    _______, _______, _______, _______, _______, _______, _______,             _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______,                      KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_ACL0, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______,                      KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_ACL1, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______,                      _______, KC_WH_L, _______, KC_WH_R, KC_ACL2, _______, _______, _______, \
-    _______, _______, _______, _______, _______,                               _______, _______, _______, _______, _______, _______, _______, _______
+    _______, DYN_REC_START1,  DYN_REC_START2,  _______, _______, _______, _______,             _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+    _______, DYN_REC_STOP,    DYN_REC_STOP,    _______, _______, _______,                      _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+    _______, DYN_MACRO_PLAY1, DYN_MACRO_PLAY2, _______, _______, _______,                      _______, _______, _______, _______, _______, _______, _______, _______, \
+    _______, _______,         _______,         _______, _______, _______,                      _______, _______, _______, _______, _______, _______, _______, _______, \
+    _______, _______,         _______,         _______, KC_DEL,                                _______, _______, _______, _______, _______, _______, _______, _______
   )           
 };
 
