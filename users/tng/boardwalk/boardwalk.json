@@ -35,7 +35,7 @@
       "KC_9",
       "KC_0",
       "MT(MOD_LCTL | MOD_LALT | MOD_LGUI,KC_ESC)",
-      "MT(MOD_LCTL | MOD_LSFT | MOD_LALT,KC_1)",
+      "MT(MOD_LCTL | MOD_LSFT | MOD_LALT,KC_TAB)",
       "KC_Q",
       "KC_W",
       "KC_E",
