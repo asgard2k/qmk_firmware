@@ -116,7 +116,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     #endif
       case STR_1:
           if (record->event.pressed) 
-            SEND_STRING("June13@@");
+            SEND_STRING("August13@@");
         break;
       case STR_2:
           if (record->event.pressed) 
