@@ -33,6 +33,11 @@ enum layer_number {
 
 enum custom_keycodes {
   RGB_RST = SAFE_RANGE,			// Special keycode for resetting the RGB
+  STR_1,
+  STR_2,
+  STR_3,
+  STR_4,  
+  STR_5,    
 };
 
 
@@ -56,8 +61,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	C_S_T(KC_GRV)                , MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1) , KC_2    , KC_3         , KC_4            , KC_5                                                  , KC_6           , KC_7         , KC_8            , KC_9           , KC_0           , LCAG_T(KC_ESC) , \
 	MT(MOD_LCTL|MOD_LALT,KC_TAB) , KC_Q                                , KC_W    , KC_E         , KC_R            , KC_T                                                  , KC_Y           , KC_U         , KC_I            , KC_O           , KC_P           , KC_DEL         , \
 	KC_LSFT                      , KC_A                                , KC_S    , KC_D         , LT(_RAISE,KC_F) , KC_G                                                  , KC_H           , KC_J         , KC_K            , KC_L           , KC_SCLN        , RSFT_T(KC_ENT), \
-	KC_LSFT                      , KC_Z                                , KC_X    , KC_C         , KC_V            , KC_B      , KC_PGUP               , KC_PGDN           , KC_N           , KC_M         , RALT_T(KC_COMM) , RGUI_T(KC_DOT) , RCTL_T(KC_SLSH), KC_QUOT , \
-	KC_LCTL                      , KC_LGUI                             , KC_LALT , MO(_LOWER)   , MO(_LOWER)      , MO(_LOWER), LT(_FUNCTIONS,KC_BSPC), LT(_RAISE,KC_SPC) , MO(_FUNCTIONS) , LSFT(KC_F10) , KC_LEFT         , KC_DOWN        , KC_RIGHT       , KC_UP\
+	KC_LSFT                      , LT(_FUNCTIONS,KC_Z)                 , KC_X    , KC_C         , KC_V            , KC_B      , KC_PGUP               , KC_PGDN           , KC_N           , KC_M         , RALT_T(KC_COMM) , RGUI_T(KC_DOT) , RCTL_T(KC_SLSH), KC_QUOT , \
+	KC_LCTL                      , KC_LGUI                             , KC_LALT , LSFT(KC_F10) , MO(_LOWER)      , MO(_LOWER), LT(_FUNCTIONS,KC_BSPC), LT(_RAISE,KC_SPC) , MO(_FUNCTIONS) , LSFT(KC_F10) , KC_LEFT         , KC_DOWN        , KC_RIGHT       , KC_UP\
       ),
 
   /* Lower
@@ -119,16 +124,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	RGB_TOG, RGB_MODE_FORWARD, RGB_MODE_GRADIENT , RGB_M_K, RGB_M_P, RGB_M_R,                   RGB_M_SW, _______ , _______, _______, _______, _______, \
 	RGB_RST, RESET           , RGB_VAI           , RGB_HUI, RGB_SAI, RGB_SPI,                   _______ , _______ , _______, _______, _______, _______, \
 	_______, RGB_MOD         , RGB_VAD           , RGB_HUD, RGB_SAD, RGB_SPD,                   _______ , _______ , _______, _______, _______, _______, \
-	_______, RGB_RMOD        , _______           , _______, _______, _______                  , _______ , _______ , _______, _______, _______, _______, \
+	_______, RGB_RMOD        , _______           , _______, _______, _______, _______, _______, _______ , _______ , _______, _______, _______, _______, \
 	_______, _______         , _______           , _______, _______, _______, _______, _______, _______ , _______ , _______, _______, _______, _______ \
       ),
 	  
 /* FUNCTIONS
  */
   [_FUNCTIONS] = LAYOUT( \
-	_______, KC_F1  , KC_F2  , KC_F3  , KC_F4     , KC_F5     ,                   KC_F6  , KC_F7       , KC_F8  , KC_F9   , KC_F10  , _______    , \
-	_______, KC_F11 , KC_F12 , _______, _______   , _______   ,                   _______, _______     , KC_INS , _______ , KC_PSCR , LCA(KC_DEL), \
-	_______, _______, _______, _______, _______   , _______   ,                   _______, _______     , _______, _______ , _______ , _______    , \
+	STR_1  , KC_F1  , KC_F2  , KC_F3  , KC_F4     , KC_F5     ,                   KC_F6  , KC_F7       , KC_F8  , KC_F9   , KC_F10  , _______    , \
+	STR_2  , KC_F11 , KC_F12 , _______, _______   , _______   ,                   _______, _______     , KC_INS , _______ , KC_PSCR , LCA(KC_DEL), \
+	STR_3  , _______, _______, _______, _______   , _______   ,                   _______, _______     , _______, _______ , _______ , _______    , \
 	_______, _______, _______, _______, LCTL(KC_V), _______   , _______, _______, _______, LSFT(KC_F10), KC_COMM, KC_DOT  , KC_SLSH , _______, \
 	_______, _______, _______, _______, _______   , _______   , _______, _______, _______, _______     , _______, _______ , _______ , _______ \
   ),
@@ -277,15 +282,27 @@ void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case RGB_RST:
-      #ifdef RGBLIGHT_ENABLE
-        if (record->event.pressed) {
-          eeconfig_update_rgblight_default();
-          rgblight_enable();
-          RGB_current_mode = rgblight_config.mode;
-        }
-      #endif
-      break;
+	case RGB_RST:
+	  #ifdef RGBLIGHT_ENABLE
+		if (record->event.pressed) {
+		  eeconfig_update_rgblight_default();
+		  rgblight_enable();
+		  RGB_current_mode = rgblight_config.mode;
+		}
+	  #endif
+	  break;
+	case STR_1:
+		if (record->event.pressed) 
+			SEND_STRING("August13@@");
+		break;
+	case STR_2:
+		if (record->event.pressed) 
+			SEND_STRING("taikamng@yahoo.com");
+		break;
+	case STR_3:
+		if (record->event.pressed) 
+			SEND_STRING("tai.kam.ng@kla-tencor.com");
+		break;	  
   }
   return true;
 }
