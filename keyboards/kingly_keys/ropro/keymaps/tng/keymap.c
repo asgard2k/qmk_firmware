@@ -52,13 +52,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `------------------------------------------------------------------------------------------'
    */
  [_QWERTY] = LAYOUT( \
-              KC_F1,                        KC_F2,                              KC_F3,                                 KC_F4,                   KC_F5,                  KC_F6,                  KC_F7,              KC_F8,            KC_F9,           KC_F10,         KC_F11,          LCAG_T(KC_F12), \
-/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/			  
-              C_S_T(KC_GRV) ,               MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1), KC_2,                                 KC_3,                    KC_4,                   KC_5,                   KC_6,               KC_7,             KC_8,            KC_9,           KC_0,            KC_ESC, \
-    KC_BSPC,  MT(MOD_LCTL|MOD_LALT,KC_TAB), KC_Q,                                KC_W,                                 KC_E,                    KC_R,                   KC_T,                   KC_Y,               KC_U,             KC_I,            KC_O,           KC_P,            KC_DEL, \
-    KC_ESC,   KC_LSFT,                      KC_A,                                KC_S,                                 KC_D,                    LT(_RAISE,KC_F),        KC_G,                   KC_H,               KC_J,             KC_K,            KC_L,           KC_SCLN,         RSFT_T(KC_ENT), \
-    KC_PGUP,  KC_LSFT,                      KC_Z,                                KC_X,                                 KC_C,                    KC_V,                   KC_B,                   KC_N,               KC_M,             RALT_T(KC_COMM), RGUI_T(KC_DOT), RCTL_T(KC_SLSH), KC_QUOT, \
-    KC_PGDN,  KC_LCTRL,                     KC_LGUI,                             KC_LALT,                              LSFT(KC_F10),            MO(_LOWER),             LT(_FUNCTIONS,KC_BSPC), LT(_RAISE, KC_SPC), MO(_FUNCTIONS),   KC_LEFT,         KC_DOWN,        KC_RIGHT,        KC_UP \
+                           KC_F1,                        KC_F2,                              KC_F3,                                 KC_F4,                   KC_F5,                  KC_F6,                  KC_F7,              KC_F8,              KC_F9,           KC_F10,         KC_F11,          LCAG_T(KC_F12), \
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/           
+                           C_S_T(KC_GRV) ,               MT(MOD_LCTL|MOD_LSFT|MOD_LALT,KC_1), KC_2,                                 KC_3,                    KC_4,                   KC_5,                   KC_6,               KC_7,               KC_8,            KC_9,           KC_0,            KC_ESC, \
+    KC_BSPC,               MT(MOD_LCTL|MOD_LALT,KC_TAB), KC_Q,                                KC_W,                                 KC_E,                    KC_R,                   KC_T,                   KC_Y,               KC_U,               KC_I,            KC_O,           KC_P,            KC_DEL, \
+    KC_ESC,                KC_LSFT,                      KC_A,                                KC_S,                                 KC_D,                    LT(_RAISE,KC_F),        KC_G,                   KC_H,               KC_J,               KC_K,            KC_L,           KC_SCLN,         RSFT_T(KC_ENT), \
+    LSFT_T(KC_PGUP),       KC_LSFT,                      KC_Z,                                KC_X,                                 KC_C,                    KC_V,                   KC_B,                   KC_N,               KC_M,               RALT_T(KC_COMM), RGUI_T(KC_DOT), RCTL_T(KC_SLSH), KC_QUOT, \
+    LCTL_T(KC_PGDN),       KC_LCTRL,                     KC_LGUI,                             KC_LALT,                              MO(_LOWER),              LT(_FUNCTIONS,KC_BSPC), XXXXXXX,                XXXXXXX,            LT(_RAISE, KC_SPC), KC_LEFT,         KC_DOWN,        KC_RIGHT,        KC_UP \
 ),
 
 /* LOWER
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_TAB,  _______,       _______,      _______, _______, _______,        _______,       KC_PGUP,       KC_UP,   KC_PGDN, _______, _______, \
     _______, _______, LCTL(KC_BSPC), LCTL(KC_DEL), KC_DEL,  _______, _______,        KC_HOME,       KC_LEFT,       KC_DOWN, KC_RGHT, KC_END , _______, \
     _______, _______, _______,       _______,      _______, _______, _______,        MO(_ADJUST),   LSFT(KC_F10),  KC_UNDS, KC_PLUS, KC_PIPE, _______, \
-    _______, _______, _______,       _______,      _______, _______, KC_BSPC,        KC_SPC,        _______,       _______, _______, _______, _______ \
+    _______, _______, _______,       _______,      _______, KC_BSPC, _______,        _______,       KC_SPC,       _______, _______, _______, _______ \
  ),
 
 /* ADJUST
@@ -109,41 +109,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) 
-	{
-	  if(IS_LAYER_ON(_RAISE)) 
-	  { 
+    {
+      if(IS_LAYER_ON(_RAISE)) 
+      { 
         if (clockwise) 
-		{
-            tap_code(KC_PGDN);
-        } 
-		else 
-		{
-            tap_code(KC_PGUP);
-        }
-	  } 
-	  else if(IS_LAYER_ON(_FUNCTIONS)) 
-	  { 
-        if (clockwise) 
-		{
-			// Move wheel left
+        {
             tap_code(KC_DOWN);
         } 
-		else 
-		{
+        else 
+        {
             tap_code(KC_UP);
         }
-	  } 
-	  else 
-	  { 
-		if (clockwise)
-		{
-		  tap_code(KC_WH_D);
-		} 
-		else
-		{
-		  // Move wheel up
-		  tap_code(KC_WH_U);
-		}
-	  }		
+      } 
+      else if(IS_LAYER_ON(_FUNCTIONS)) 
+      { 
+        if (clockwise) 
+        {
+            tap_code(KC_PGDN);
+        } 
+        else 
+        {
+            tap_code(KC_PGUP);
+        }  
+      } 
+      else 
+      { 
+        if (clockwise)
+        {
+          tap_code(KC_WH_D);
+        } 
+        else
+        {
+          // Move wheel up
+          tap_code(KC_WH_U);
+        }
+      }     
     }
 }
