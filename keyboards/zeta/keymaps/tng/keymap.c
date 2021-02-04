@@ -46,9 +46,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_RAISE] =  LAYOUT_ortho_4x12( \
-  _______, _______,       _______,      _______,       _______, _______,                 _______,     KC_PGUP,      KC_UP,   KC_PGDN, _______, KC_DEL, \
+  _______, _______,       _______,      _______,       _______, _______,                 KC_ESC,      KC_PGUP,      KC_UP,   KC_PGDN, _______, KC_DEL, \
   _______, LCTL(KC_BSPC), LCTL(KC_DEL), KC_DEL,        _______, _______,                 KC_HOME,     KC_LEFT,      KC_DOWN, KC_RGHT, KC_END , _______, \
-  _______, _______,       _______,      _______,       _______, _______,                 MO(_NUMBERS),LSFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______, \
+  _______, _______,       _______,      _______,       _______, _______,                 _______,     LSFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______, \
   _______, _______,       _______,      _______,       _______, KC_BSPC,                 KC_SPC,      _______,      _______, _______, _______, _______ \
 ),
 
