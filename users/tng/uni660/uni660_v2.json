@@ -104,7 +104,7 @@
     ],
     [
       "KC_TRNS",
-      "KC_GRV",
+      "C(A(LCA(KC_DEL)))",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -268,7 +268,7 @@
     ],
     [
       "KC_TRNS",
-      "C(A(LCA(KC_DEL)))",
+      "KC_TRNS",
       "KC_F1",
       "KC_F2",
       "KC_F3",
@@ -313,7 +313,7 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_ENT",
+      "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
