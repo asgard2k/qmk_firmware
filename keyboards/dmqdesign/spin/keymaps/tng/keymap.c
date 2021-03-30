@@ -17,22 +17,30 @@
 
 enum layer_number {
     _QWERTY = 0,
+    _LOWER,
     _RAISE
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(/* Base */
-                KC_P7, KC_P8, KC_P9, 				KC_TRNS,
-                KC_P4, KC_P5, KC_P6, 				KC_TRNS,
-                KC_P1, KC_P2, KC_P3, 				KC_TRNS,
-                KC_P0, KC_PDOT, LT(_RAISE,KC_PENT)
+                KC_7, KC_8,   KC_9, 				KC_TRNS,
+                KC_4, KC_5,   KC_6, 				KC_TRNS,
+                KC_1, KC_2,   KC_3, 				KC_TRNS,
+                KC_0, KC_DOT, LT(_LOWER,KC_PENT)
                 ),
 				
+    [_LOWER] = LAYOUT(/* Lower */
+                KC_TRNS, MO(_RAISE), KC_TRNS, RGB_TOG,
+                KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS,
+                KC_SLSH, KC_ASTR,    KC_TRNS, KC_TRNS,
+                KC_MINS, KC_PLUS,    KC_TRNS
+                ),				
+
     [_RAISE] = LAYOUT(/* Raise */
-                KC_TRNS, KC_TRNS, KC_TRNS, RGB_TOG,
+                RESET,   KC_TRNS, KC_TRNS, KC_TRNS,
                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                KC_PSLS, KC_PAST, KC_TRNS, KC_TRNS,
-                KC_PMNS, KC_PPLS, KC_TRNS
+                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                KC_TRNS, KC_TRNS, KC_TRNS
                 ),				
 };
 
@@ -40,55 +48,69 @@ void encoder_update_user(uint8_t index, bool clockwise) {
   if (index == 0) 
   { 
     /* First encoder */
-    if(IS_LAYER_ON(_RAISE))
+    if(IS_LAYER_ON(_LOWER))
 	{
 		if (clockwise) 
-		  rgblight_increase_hue(); //Cycle through the RGB hue
+		  rgblight_increase_hue(); 
 		else 
 		  rgblight_decrease_hue();
 	}
+    else if(IS_LAYER_ON(_RAISE))
+	{
+		if (clockwise) 
+		   rgblight_step();
+		else 
+		   rgblight_step_reverse();
+	}	
 	else
 	{
 		if (clockwise) 
-		  tap_code(KC_MS_WH_LEFT); //Example of using tap_code which lets you use keycodes outside of the keymap
-		else 
 		  tap_code(KC_MS_WH_RIGHT);   
+		else 
+		  tap_code(KC_MS_WH_LEFT);
 	}
   } 
   else if (index == 1) 
   { 
     /* Second encoder */  
-    if(IS_LAYER_ON(_RAISE))
+    if(IS_LAYER_ON(_LOWER))
 	{
 		if (clockwise) 
-			rgblight_increase_val(); //Change brightness on the RGB LEDs
+			rgblight_increase_val(); 
 		else 
 			rgblight_decrease_val();
 	}
+    else if(IS_LAYER_ON(_RAISE))
+	{
+		if (clockwise) 
+		  rgblight_increase_sat(); 
+		else 
+		  rgblight_decrease_sat();
+	}		
 	else
 	{
 		if (clockwise) 
-		  tap_code(KC_PGUP); //Example of using tap_code which lets you use keycodes outside of the keymap
+		  tap_code(KC_MS_WH_DOWN);   
 		else 
-		  tap_code(KC_PGDN);   
+		  tap_code(KC_MS_WH_UP); 
 	}
   } 
   else if (index == 2) 
   { 
     /* Third encoder */  
-    if(IS_LAYER_ON(_RAISE))
+    if(IS_LAYER_ON(_LOWER))
 	{
 		if (clockwise) 
-		  tap_code(KC_VOLU); //Example of using tap_code which lets you use keycodes outside of the keymap
+		  tap_code(KC_VOLU);
 		else 
 		  tap_code(KC_VOLD); 
 	}
 	else
 	{
 		if (clockwise) 
-		  tap_code(KC_MS_WH_UP); //Example of using tap_code which lets you use keycodes outside of the keymap
+		  tap_code(KC_PGDN);   
 		else 
-		  tap_code(KC_MS_WH_DOWN);   
+		  tap_code(KC_PGUP); 
 	}
   }
 }
