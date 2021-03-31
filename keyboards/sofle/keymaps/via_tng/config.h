@@ -22,6 +22,13 @@ see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
 for more options.
 */
 
+#define PERMISSIVE_HOLD
+
+#define TAPPING_FORCE_HOLD
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 200
+
 //Add RGB underglow
 #define RGB_DI_PIN D3
 #define RGBLED_NUM 14
