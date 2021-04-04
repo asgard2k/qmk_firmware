@@ -201,9 +201,12 @@ void dip_update(uint8_t index, bool active) {
 }
 
 // Runs just one time when the keyboard initializes.
-void matrix_scan_user(void) {
-
+void matrix_init_user(void) {
+  // ...
   steno_set_mode(STENO_MODE_GEMINI);
+};
+
+void matrix_scan_user(void) {
   
   #ifdef AUDIO_ENABLE
     if (muse_mode) {
