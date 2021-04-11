@@ -153,7 +153,7 @@ void matrix_init_user(void) {
 
 void rgb_matrix_indicators_user(void) {
 	
-	rgb_matrix_set_color(5, RGB_OFF);
+/* 	rgb_matrix_set_color(5, RGB_OFF);
 	rgb_matrix_set_color(17, RGB_OFF);
 
 	rgb_matrix_set_color(24, RGB_OFF);
@@ -174,7 +174,7 @@ void rgb_matrix_indicators_user(void) {
 	
 	rgb_matrix_set_color(44, RGB_OFF);
 	rgb_matrix_set_color(45, RGB_OFF);
-	rgb_matrix_set_color(46, RGB_OFF);
+	rgb_matrix_set_color(46, RGB_OFF); */
 	
-	//rgb_matrix_set_color_all(RGB_WHITE);
+	rgb_matrix_set_color_all(RGB_OFF);
 }
