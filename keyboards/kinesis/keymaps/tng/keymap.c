@@ -44,10 +44,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT(_RAISE,KC_TAB),      KC_Q,     KC_W,     KC_E,     KC_R,         KC_T,                                                             KC_Y,     KC_U,         KC_I,            KC_O,           KC_P,            KC_DEL,
     LT(_FUNCTIONS,KC_CAPS), KC_A,     KC_S,     KC_D,     KC_F,         KC_G,                                                             KC_H,     KC_J,         KC_K,            KC_L,           KC_SCLN,         RSFT_T(KC_ENT),
     KC_LSFT,                KC_Z,     KC_X,     KC_C,     KC_V,         KC_B,                                                             KC_N,     KC_M,         RALT_T(KC_COMM), RGUI_T(KC_DOT), RCTL_T(KC_SLSH), KC_QUOT,
-                            KC_LCTL,   KC_LGUI, KC_LALT,  LSFT(KC_F10),                                                                             KC_LEFT,      KC_DOWN,         KC_RIGHT,       KC_UP,
-                                                                        KC_PSCR,    LCTL(KC_V),                                           KC_HOME,  KC_END,
-                                                                                    KC_INS,                                               KC_PGUP,
-                                               LT(_FUNCTIONS,KC_BSPC),  MO(_LOWER), KC_DEL,                                               KC_PGDN,  LSFT(KC_F10), LT(_RAISE,KC_SPC)
+                            KC_LCTL,  KC_LGUI,  KC_LALT,  LSFT(KC_F10),                                                                             KC_LEFT,      KC_DOWN,         KC_RIGHT,       KC_UP,
+                                                          KC_PSCR,      LCTL(KC_V),                                             KC_HOME,  KC_END,
+                                                                        KC_INS,                                                 KC_PGUP,
+                                                KC_BSPC,  MO(_LOWER),   KC_DEL,                                                 KC_PGDN,  LSFT(KC_F10), LT(_RAISE,KC_SPC)
   ),
 
   [_LOWER] = LAYOUT_pretty(
@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RAISE] = LAYOUT_pretty(
     _______, _______,       _______,      _______, _______, _______, _______, _______, _______,         _______, _______, _______,   _______,       _______,      _______, _______, _______, _______,
     _______, _______,       _______,      _______, _______, _______,                                                                 LCTL(KC_PGUP), LCTL(KC_PGDN),      _______, _______, _______, _______,
-    _______, _______,       _______,      _______, _______, _______,                                                                 _______,       KC_PGUP,      KC_UP,   KC_PGDN, _______, _______,
+    _______, _______,       _______,      _______, _______, _______,                                                                 KC_ESC,        KC_PGUP,      KC_UP,   KC_PGDN, _______, _______,
     _______, LCTL(KC_BSPC), LCTL(KC_DEL), KC_DEL,  _______, _______,                                                                 KC_HOME,       KC_LEFT,      KC_DOWN, KC_RGHT, KC_END,  _______,
     _______, _______,       _______,      _______, _______, _______,                                                                 _______,       LSFT(KC_F10), KC_UNDS, KC_PLUS, KC_PIPE, _______,
              _______,       _______,      _______, _______,                                                                                         _______,      _______, _______, _______,
