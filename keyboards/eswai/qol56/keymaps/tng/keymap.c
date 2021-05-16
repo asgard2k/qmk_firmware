@@ -44,25 +44,15 @@ enum custom_keycodes {
   MACRO_2
 };
 
-// Tap dance
-enum {
-  FUNC
-};
-
-
-// #define _______   KC_TRNS
-// #define XXXXX   KC_NO
-#define KFUNC   TD(FUNC)
-
 #define MACRO_VAL_1			"April13@@"
 #define MACRO_VAL_2			"16thMarch$"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT( /* Base */
-    LT(_RAISE,KC_TAB),  KC_Q,    KC_W,    KC_E,    KC_R,       KC_T,            MO(_ADJUST), KC_PSCR,        KC_Y,               KC_U,               KC_I,            KC_O,           KC_P,            KC_ESC, \
-    LT(_FUNCS,KC_BSPC), KC_A,    KC_S,    KC_D,    KC_F,       KC_G,            KC_PGUP,     KC_HOME,        KC_H,               KC_J,               KC_K,            KC_L,           KC_SCLN,         RSFT_T(KC_ENT), \
-    KC_LSFT,            KC_Z,    KC_X,    KC_C,    KC_V,       KC_B,            KC_PGDN,     KC_END,         KC_N,               KC_M,               RALT_T(KC_COMM), RGUI_T(KC_DOT), RCTL_T(KC_SLSH), MT(MOD_RSFT,KC_QUOT), \
-    KC_LCTL,            KC_LGUI, KC_LALT, KC_CAPS, KFUNC,      KC_BSPC,         KC_INS,      KC_DEL,         LT(_RAISE,KC_SPC),  LCTL(LSFT(KC_ESC)), KC_LEFT,         KC_DOWN,        KC_RGHT,         KC_UP  \
+    LT(_RAISE,KC_TAB),  KC_Q,    KC_W,    KC_E,    KC_R,         KC_T,                       MO(_ADJUST), KC_PSCR,        KC_Y,               KC_U,               KC_I,            KC_O,           KC_P,            KC_ESC, \
+    LT(_FUNCS,KC_BSPC), KC_A,    KC_S,    KC_D,    KC_F,         KC_G,                       KC_PGUP,     KC_HOME,        KC_H,               KC_J,               KC_K,            KC_L,           KC_SCLN,         RSFT_T(KC_ENT), \
+    KC_LSFT,            KC_Z,    KC_X,    KC_C,    KC_V,         KC_B,                       KC_PGDN,     KC_END,         KC_N,               KC_M,               RALT_T(KC_COMM), RGUI_T(KC_DOT), RCTL_T(KC_SLSH), MT(MOD_RSFT,KC_QUOT), \
+    KC_LCTL,            KC_LGUI, KC_LALT, KC_CAPS, MO(_S_LOWER), LT(_LOWER,KC_BSPC),         KC_INS,      KC_DEL,         LT(_RAISE,KC_SPC),  LCTL(LSFT(KC_ESC)), KC_LEFT,         KC_DOWN,        KC_RGHT,         KC_UP  \
   ),
 
 
@@ -81,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_ADJUST] = LAYOUT( \
-    _______,  RESET,    _______,  _______,  _______,  _______,  _______,  _______, _______,  _______,  _______,    _______,   RGB_M_P,  RGB_TOG,\
+    _______,  RESET,    RGBRST,   _______,  _______,  _______,  _______,  _______, _______,  _______,  _______,    RGB_M_R,   RGB_M_P,  RGB_TOG,\
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, _______,  _______,  _______,    _______,   RGB_HUD,  RGB_HUI,\
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, _______,  _______,  _______,    _______,   RGB_SAD,  RGB_SAI,\
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, _______,  _______,  RGB_RMOD,   RGB_MOD,   RGB_VAD,  RGB_VAI \
@@ -103,62 +93,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-qk_tap_dance_action_t tap_dance_actions[] = {
- [FUNC] = ACTION_TAP_DANCE_DOUBLE (LOWER, S_LOWER)
-};
+// void update_led(void);
 
-void update_led(void);
-
-void update_led() {
-  // if (layer_state_is(_NUMPAD)) {
-    // rgblight_setrgb_at(5, 5, 20, 3);
-  // }
-  // if (layer_state_is(_NUMPAD) || layer_state_is(_LOWER)) {
-    // rgblight_setrgb_at(5, 5, 20, 37);
-    // rgblight_setrgb_at(5, 5, 20, 38);
-    // rgblight_setrgb_at(5, 5, 20, 39);
-    // rgblight_setrgb_at(5, 5, 20, 40);
-    // rgblight_setrgb_at(5, 5, 20, 41);
-    // rgblight_setrgb_at(5, 5, 20, 42);
-    // rgblight_setrgb_at(5, 5, 20, 45);
-    // rgblight_setrgb_at(5, 5, 20, 46);
-    // rgblight_setrgb_at(5, 5, 20, 47);
-  // }
-  // if (layer_state_is(_RAISE)) {
-    // rgblight_setrgb_at(15, 2, 5, 38);
-    // rgblight_setrgb_at(15, 2, 5, 40);
-    // rgblight_setrgb_at(15, 2, 5, 41);
-    // rgblight_setrgb_at(15, 2, 5, 46);
-  // }
-  // if (!layer_state_is(_NUMPAD) && !layer_state_is(_LOWER) && !layer_state_is(_RAISE)) {
-    // rgblight_setrgb_range(0, 0, 0, 0, 55);
-  // }
-  // if (is_nicola) {
-    // rgblight_setrgb_range(10, 10, 10, 56, 71);
-  // } else {
-    // rgblight_setrgb_range(0, 0, 0, 56, 71);
-  // }
-}
+// void update_led() {
+  // // if (layer_state_is(_NUMPAD)) {
+    // // rgblight_setrgb_at(5, 5, 20, 3);
+  // // }
+  // // if (layer_state_is(_NUMPAD) || layer_state_is(_LOWERo)) {
+    // // rgblight_setrgb_at(5, 5, 20, 37);
+    // // rgblight_setrgb_at(5, 5, 20, 38);
+    // // rgblight_setrgb_at(5, 5, 20, 39);
+    // // rgblight_setrgb_at(5, 5, 20, 40);
+    // // rgblight_setrgb_at(5, 5, 20, 41);
+    // // rgblight_setrgb_at(5, 5, 20, 42);
+    // // rgblight_setrgb_at(5, 5, 20, 45);
+    // // rgblight_setrgb_at(5, 5, 20, 46);
+    // // rgblight_setrgb_at(5, 5, 20, 47);
+  // // }
+  // // if (layer_state_is(_RAISE)) {
+    // // rgblight_setrgb_at(15, 2, 5, 38);
+    // // rgblight_setrgb_at(15, 2, 5, 40);
+    // // rgblight_setrgb_at(15, 2, 5, 41);
+    // // rgblight_setrgb_at(15, 2, 5, 46);
+  // // }
+  // // if (!layer_state_is(_NUMPAD) && !layer_state_is(_LOWER) && !layer_state_is(_RAISE)) {
+    // // rgblight_setrgb_range(0, 0, 0, 0, 55);
+  // // }
+  // // if (is_nicola) {
+    // // rgblight_setrgb_range(10, 10, 10, 56, 71);
+  // // } else {
+    // // rgblight_setrgb_range(0, 0, 0, 56, 71);
+  // // }
+// }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   switch (keycode) {
-    // case LOWER:
-      // if (record->event.pressed) {
-        // layer_on(_LOWER);
-      // } else {
-        // layer_off(_LOWER);
-      // }
-      // return false;
-      // break;
-    // case S_LOWER:
-      // if (record->event.pressed) {
-        // layer_on(_S_LOWER);
-      // } else {
-        // layer_off(_S_LOWER);
-      // }
-      // return false;
-      // break;
     case RGBRST:
       if (record->event.pressed) {
         eeconfig_update_rgblight_default();
