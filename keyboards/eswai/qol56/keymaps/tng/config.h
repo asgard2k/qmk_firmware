@@ -17,3 +17,9 @@
 #pragma once
 
 // place overrides here
+#define PERMISSIVE_HOLD
+
+#define TAPPING_FORCE_HOLD
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 175
