@@ -24,20 +24,20 @@ enum layer_number {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(/* Base */
                 KC_P7, KC_P8,   KC_P9, 				KC_NLCK,
-                KC_P4, KC_P5,   KC_P6, 				KC_TRNS,
-                KC_P1, KC_P2,   KC_P3, 				KC_TRNS,
+                KC_P4, KC_P5,   KC_P6, 				LCTL(KC_BSPC),
+                KC_P1, KC_P2,   KC_P3, 				KC_BSPC,
                 KC_P0, KC_PDOT, LT(_LOWER,KC_ENT)
                 ),
 				
     [_LOWER] = LAYOUT(/* Lower */
-                KC_TRNS, MO(_RAISE), KC_TRNS, RGB_TOG,
-                KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS,
+                KC_BSPC, KC_UP,      KC_DEL,  RGB_TOG,
+                KC_LEFT, KC_DOWN,    KC_RGHT, RESET,
                 KC_SLSH, KC_ASTR,    KC_TRNS, KC_TRNS,
                 KC_MINS, KC_PLUS,    KC_TRNS
                 ),				
 
     [_RAISE] = LAYOUT(/* Raise */
-                RESET,   KC_TRNS, KC_TRNS, KC_TRNS,
+                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                 KC_TRNS, KC_TRNS, KC_TRNS
